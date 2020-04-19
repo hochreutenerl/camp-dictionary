@@ -2,7 +2,7 @@
     <v-app id="main">
         <v-app-bar app clipped-left="" color="green" dark class="d-print-none">
             <v-app-bar-nav-icon @click="drawer = !drawer"/>
-            <v-toolbar-title class="title ml-3 mr-5">{{ $t("appname") }}</v-toolbar-title>
+            <v-toolbar-title class="title">{{ $t("appname") }}</v-toolbar-title>
             <v-spacer />
             <div class="locale-changer align-center float-right">
                 <v-select :items="languagesSelector" v-model="$i18n.locale" @change="languageChanged"></v-select>
