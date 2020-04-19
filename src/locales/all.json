@@ -56,7 +56,13 @@
     "reefKnot": "Kreuzknoten / Doppelknoten",
     "sheetBend": "Schotstek",
     "noose": "Schlinge",
-    "prusik": "Prusikknoten"
+    "prusik": "Prusikknoten",
+    "campactivity": "Lageraktivität",
+    "campsport": "Lagersport",
+    "course1": "J+S-Leiterkurs",
+    "course2": "J+S-Lagerleiterkurs",
+    "courseRep": "J+S-Modul Fortbildung",
+    "coach": "Coach"
   },
   "en": {
     "appname": "Dictionary",
@@ -116,7 +122,13 @@
     "reefKnot": "Reef knot / square knot",
     "sheetBend": "Sheet bend",
     "noose": "Noose",
-    "prusik": "Prusik knot"
+    "prusik": "Prusik knot",
+    "campactivity": "Campactivity",
+    "campsport": "Campsport",
+    "course1": "J+S course",
+    "course2": "J+S camp leader course",
+    "courseRep": "J+S refresher module",
+    "coach": "Coach"
   },
   "fr": {
     "appname": "Dictionnaire",
@@ -138,7 +150,13 @@
     "troopleader": "Chef de troupe",
     "patrolleader": "Chef de patrouille",
     "groupleader": "Chef de groupe",
-    "participant": "Participant"
+    "participant": "Participant",
+    "campactivity": "Activités de camp",
+    "campsport": "Sport de camp",
+    "course1": "Cours de moniteurs J+S",
+    "course2": "Chef de camp J+S",
+    "courseRep": "Formation continue J+S",
+    "coach": "Coach"
   },
   "no": {
     "appname": "Ordbok",
@@ -161,7 +179,13 @@
     "patrolleader": "Patruljeleder",
     "groupleader": "Patruljeassistent",
     "participant": "Deltager",
-    "mattress": "Liggeunderlag"
+    "mattress": "Liggeunderlag",
+    "campactivity": "Leiraktivitet",
+    "campsport": "Leirsport",
+    "course1": "J+S kurs",
+    "course2": "J+S leirsjefenkurs",
+    "courseRep": "J+S repetisjonskurs",
+    "coach": "Coach"
   },
   "fi": {
     "appname": "Sanakirja",
@@ -218,7 +242,12 @@
     "reefKnot": "Merimiessolmu",
     "sheetBend": "Jalussolmu",
     "noose": "Vetosolmu",
-    "prusik": "Jalussolmu"
+    "prusik": "Jalussolmu",
+    "campactivity": "Leiritoiminta",
+    "campsport": "Leiriurheilu",
+    "course1": "Kurssi \"Nuoret ja urheilu\" johtaja",
+    "course2": "Kurssi \"Nuoret ja urheilu\" lerinjohtaja",
+    "courseRep": "Kurssi \"Nuoret ja urheilu\" kertakurssi"
   },
   "sv": {
     "camp": "Läger",
@@ -236,7 +265,13 @@
     "troopleader": "Kårchef",
     "patrolleader": "Patrulledare",
     "groupleader": "Vice Patrulledara",
-    "participant": "Deltagere"
+    "participant": "Deltagere",
+    "campactivity": "Lägeraktivitet",
+    "campsport": "Lägersport",
+    "course1": "J+S kurs",
+    "course2": "J+S leirchefenkurs",
+    "courseRep": "J+S repetitionkurs",
+    "coach": "Coach"
   },
   "eo": {
     "camp": "Tendaro",
@@ -250,7 +285,12 @@
     "troopleader": "Trupestro",
     "patrolleader": "Patrolestro",
     "groupleader": "Grupestro",
-    "participant": "Skolto"
+    "participant": "Skolto",
+    "campactivity": "Tendara activeco",
+    "campsport": "Tendara sporto",
+    "course1": "Kurso \"Junaĝo kaj Sporto\"",
+    "course2": "Kurso Tendarestro",
+    "courseRep": "Kurso ripetada"
   },
   "de-ch": {
     "scarf": "Krawatte",
