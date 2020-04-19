@@ -6,7 +6,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'"
+    "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'",
+    "loadTranslations": "node src/plugins/spreadsheet.js --spreadsheet=16alnROkJ__37BM4sKzlyJ7LYCvwgjr0U1rA0T6OtybA --sheet=dict_translation --format=json --output=src/locales/all.json"
   },
   "dependencies": {
     "core-js": "^3.6.4",
@@ -22,6 +23,7 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
+    "google-spreadsheet-vue-i18n": "^1.0.3",
     "sass": "^1.19.0",
     "sass-loader": "^8.0.0",
     "vue-cli-plugin-i18n": "^0.6.1",

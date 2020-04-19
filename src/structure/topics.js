@@ -1,6 +1,6 @@
 module.exports = {
     basic: {title: 'Basic terms'},
-    camp: {title: 'Camps'},
-    orga: {title: 'Organisation'},
-    tech: {title: 'Tech'},
+    organisation: {title: 'Organisation'},
+    equipment: {title: 'Equipment'},
+    knots: {title: 'Knots'},
 };
