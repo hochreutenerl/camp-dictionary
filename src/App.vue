@@ -3,7 +3,7 @@
         <v-app-bar app clipped-left="" color="green" dark class="d-print-none">
             <v-app-bar-nav-icon @click="drawer = !drawer"/>
             <v-toolbar-title class="title">{{ $t("appname") }}</v-toolbar-title>
-            <v-spacer />
+            <v-spacer/>
             <div class="locale-changer align-center float-right">
                 <v-select :items="languagesSelector" v-model="$i18n.locale" @change="languageChanged"></v-select>
             </div>
@@ -51,13 +51,16 @@
             <v-container class="terms" fluid grid-list-xl>
                 <v-layout wrap justify-space-around>
                     <v-flex v-for="term in current_terms" v-bind:key="term" class="term">
-                        <v-card min-width="180px">
-                            <v-img v-if="index[term].image" class="term_image" :src="'./images/' + index[term].image" alt="">
-                            </v-img>
+                        <v-card>
+                            <v-img v-if="index[term].image === true" class="term_image"
+                                   :src="'./img/terms/' + term + '.png'" alt=""></v-img>
+                            <v-img v-else-if="index[term].image" class="term_image"
+                                   :src="'./img/terms/' + index[term].image" alt=""></v-img>
+                            <v-card-title>{{ $t(term, current_languages[0]) }}</v-card-title>
                             <v-card-text class="term_descriptions">
-                                <div v-for="language in current_languages" v-bind:key="language"
-                                     class="term_description">
-                                    {{language}}: {{ $t(term, language) }}
+                                <div v-for="language in current_languages.slice(1)" v-bind:key="language"
+                                     class="term_description text--primary">
+                                    {{ $t(term, language) }} ({{language}})
                                 </div>
                             </v-card-text>
                         </v-card>
@@ -84,7 +87,7 @@
             languages: languages,
             topics: topics,
             current_topic: "basic",
-            current_languages: ["en", "de-ch"],
+            current_languages: ["de-ch", "en"],
             current_terms: [],
             dictionary: {},
             locales: ["en", "de"]
@@ -118,8 +121,10 @@
 
                 this.current_terms = terms;
             },
-            languageChanged: function(newLanguage) {
+            languageChanged: function (newLanguage) {
                 localStorage.setItem("locale", JSON.stringify(newLanguage));
+            },
+            doNothing: function () {
             }
         },
         created: function () {
@@ -157,9 +162,8 @@
                         e.push({text: this.languages[lang]['name'], value: lang});
                     }
                 }
-                console.log(e);
                 return e;
-            }
+            },
         }
     };
 </script>
