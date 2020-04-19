@@ -1,12 +1,12 @@
 <template>
     <v-app id="main">
-        <v-app-bar app clipped-left="" color="primary" dark>
+        <v-app-bar app clipped-left="" color="green" dark>
             <v-app-bar-nav-icon @click="drawer = !drawer"/>
-            <span class="title ml-3 mr-5">Dic</span>
+            <span class="title ml-3 mr-5">Dictionary</span>
         </v-app-bar>
 
         <v-navigation-drawer v-model="drawer" app clipped color="grey lighten-4">
-            <v-list dense class="grey lighten-4">
+            <v-list class="grey lighten-4">
 
                 <v-subheader>Topics</v-subheader>
                 <v-list-item-group v-model="current_topic">
@@ -24,13 +24,13 @@
                 <v-subheader>Languages</v-subheader>
                 <v-list-item-group v-model="current_languages" multiple>
                     <template v-for="(lang, code) in languages">
-                        <v-list-item v-if="!lang.hide" :key="`item-${code}`" :value="code">
+                        <v-list-item dense v-if="!lang.hide" :key="`item-${code}`" :value="code">
                             <template v-slot:default="{ active, toggle }">
                                 <v-list-item-content>
                                     <v-list-item-title v-text="lang.name"></v-list-item-title>
                                 </v-list-item-content>
 
-                                <v-list-item-action>
+                                <v-list-item-action class="lang_check">
                                     <v-checkbox :input-value="active" :true-value="code" @click="toggle"></v-checkbox>
                                 </v-list-item-action>
                             </template>
@@ -43,17 +43,22 @@
         </v-navigation-drawer>
 
         <v-content>
-            <div class="terms">
-                <v-card v-for="term in current_terms" v-bind:key="term" class="term">
-                    <v-img v-if="index[term].image" class="term_image" :src="index[term].image" alt="">
-                    </v-img>
-                    <v-card-text class="term_descriptions">
-                        <div v-for="language in current_languages" v-bind:key="language" class="term_description">
-                            <span>{{ language + ": " + loadTerm(term, language) }}</span>
-                        </div>
-                    </v-card-text>
-                </v-card>
-            </div>
+            <v-container class="terms" fluid grid-list-xl>
+                <v-layout wrap justify-space-around>
+                    <v-flex v-for="term in current_terms" v-bind:key="term" class="term">
+                        <v-card width="180px">
+                            <v-img v-if="index[term].image" class="term_image" :src="index[term].image" alt="">
+                            </v-img>
+                            <v-card-text class="term_descriptions">
+                                <div v-for="language in current_languages" v-bind:key="language"
+                                     class="term_description">
+                                    {{language}}: {{ $t(term, language) }}
+                                </div>
+                            </v-card-text>
+                        </v-card>
+                    </v-flex>
+                </v-layout>
+            </v-container>
         </v-content>
     </v-app>
 </template>
@@ -79,15 +84,6 @@
             dictionary: {},
         }),
         methods: {
-            getCurrentTerms: function () {
-
-            },
-            loadDictionary: function () {
-                var dict = this.dictionary;
-                Object.entries(this.languages).forEach(function (value) {
-                    dict[value[0]] = require('./lang/' + value[0]);
-                });
-            },
             loadTerm: function (term, language) {
                 if (term in this.dictionary[language]) {
                     return this.dictionary[language][term];
@@ -117,14 +113,34 @@
                 this.current_terms = terms;
             }
         },
-        created: function() {
-            this.loadDictionary();
+        created: function () {
+            var storedLanguages = JSON.parse(localStorage.getItem("current_languages"));
+            if (storedLanguages) {
+                this.current_languages = storedLanguages;
+            }
+
+            var storedTopic = JSON.parse(localStorage.getItem("current_topic"));
+            if (storedTopic) {
+                this.current_topic = storedTopic;
+            }
+
             this.refreshTerms(this.current_topic);
         },
         watch: {
-            current_topic: function(newTopic) {
+            current_topic: function (newTopic) {
                 this.refreshTerms(newTopic);
-            }
+                localStorage.setItem("current_topic", JSON.stringify(newTopic));
+            },
+            current_languages: function (newLanguages) {
+                localStorage.setItem("current_languages", JSON.stringify(newLanguages));
+            },
+
         }
     };
 </script>
+
+<style>
+    .lang_check {
+        margin: 0 !important;
+    }
+</style>
