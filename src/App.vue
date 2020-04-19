@@ -1,40 +1,61 @@
 <template>
-    <div id="app">
-        <ul>
-            <div v-for="(lang, code) in languages" v-bind:key="code">
-                <li v-if="!lang.hide">
-                    <a @click.prevent="toggleLanguage(code)">
-                        <strong v-if="current_languages.includes(code)">{{ lang.name }}</strong>
-                        <span v-else>{{ lang.name }}</span>
-                    </a>
-                </li>
-            </div>
-        </ul>
+    <v-app id="main">
+        <v-app-bar app clipped-left="" color="primary" dark>
+            <v-app-bar-nav-icon @click="drawer = !drawer"/>
+            <span class="title ml-3 mr-5">Dic</span>
+        </v-app-bar>
 
-        <ul>
-            <div v-for="topic in topics" v-bind:key="topic">
-                <li v-if="!topic.hide">
-                    <a @click.prevent="changeTopic(topic)">
-                        <strong v-if="current_topic == topic">{{ topic }}</strong>
-                        <span v-else>{{ topic }}</span>
-                    </a>
-                </li>
-            </div>
-        </ul>
+        <v-navigation-drawer v-model="drawer" app clipped color="grey lighten-4">
+            <v-list dense class="grey lighten-4">
 
-        <div class="terms">
-            <div v-for="term in current_terms" v-bind:key="term" class="term">
-                <div class="term_image" v-if="index[term].image">
-                    <img :src="index[term].image" alt="">
-                </div>
-                <div class="term_descriptions">
-                    <div v-for="language in current_languages" v-bind:key="language" class="term_description">
-                        <p>{{ loadTerm(term, language) }}</p>
-                    </div>
-                </div>
+                <v-subheader>Topics</v-subheader>
+                <v-list-item-group v-model="current_topic">
+                    <template v-for="(topic, code) in topics">
+                        <v-list-item v-if="!topic.hide" :key="`item-${code}`" :value="code">
+                            <v-list-item-content>
+                                <v-list-item-title v-text="topic.title"></v-list-item-title>
+                            </v-list-item-content>
+                        </v-list-item>
+                    </template>
+                </v-list-item-group>
+
+                <v-divider dark class="my-4"/>
+
+                <v-subheader>Languages</v-subheader>
+                <v-list-item-group v-model="current_languages" multiple>
+                    <template v-for="(lang, code) in languages">
+                        <v-list-item v-if="!lang.hide" :key="`item-${code}`" :value="code">
+                            <template v-slot:default="{ active, toggle }">
+                                <v-list-item-content>
+                                    <v-list-item-title v-text="lang.name"></v-list-item-title>
+                                </v-list-item-content>
+
+                                <v-list-item-action>
+                                    <v-checkbox :input-value="active" :true-value="code" @click="toggle"></v-checkbox>
+                                </v-list-item-action>
+                            </template>
+                        </v-list-item>
+                    </template>
+                </v-list-item-group>
+
+
+            </v-list>
+        </v-navigation-drawer>
+
+        <v-content>
+            <div class="terms">
+                <v-card v-for="term in current_terms" v-bind:key="term" class="term">
+                    <v-img v-if="index[term].image" class="term_image" :src="index[term].image" alt="">
+                    </v-img>
+                    <v-card-text class="term_descriptions">
+                        <div v-for="language in current_languages" v-bind:key="language" class="term_description">
+                            <span>{{ language + ": " + loadTerm(term, language) }}</span>
+                        </div>
+                    </v-card-text>
+                </v-card>
             </div>
-        </div>
-    </div>
+        </v-content>
+    </v-app>
 </template>
 
 <script>
@@ -44,45 +65,22 @@
 
     export default {
         name: 'App',
-        components: {},
-        data: function () {
-            return {
-                index: index,
-                languages: languages,
-                topics: topics,
-                current_topic: "basic",
-                current_languages: ["en"],
-                current_terms: [],
-                dictionary: {},
-            }
-        },
-        methods: {
-            changeTopic: function (topic) {
-                this.current_topic = topic;
-                this.getCurrentTerms();
-            },
-            toggleLanguage: function (language) {
-                if (this.current_languages.includes(language)) {
-                    this.current_languages = this.current_languages.filter(function (l) {
-                        return (l != language);
-                    });
-                } else {
-                    this.current_languages.push(language);
-                }
-            },
-            getCurrentTerms: function () {
-                var terms = [];
-                var ix = this.index;
-                var tx = this.current_topic;
-                Object.keys(ix).forEach(function (key) {
-                    ix[key].topics.forEach(function (topic) {
-                        if (topic == tx) {
-                            terms.push(key);
-                        }
-                    });
-                });
 
-                this.current_terms = terms;
+        components: {},
+
+        data: () => ({
+            drawer: null,
+            index: index,
+            languages: languages,
+            topics: topics,
+            current_topic: "basic",
+            current_languages: ["en", "de-ch"],
+            current_terms: [],
+            dictionary: {},
+        }),
+        methods: {
+            getCurrentTerms: function () {
+
             },
             loadDictionary: function () {
                 var dict = this.dictionary;
@@ -104,20 +102,29 @@
                 } else {
                     return "";
                 }
-                /*
-                var fb = .fallback;
+            },
+            refreshTerms: function (newTopic) {
+                var terms = [];
+                var ix = this.index;
+                Object.keys(ix).forEach(function (key) {
+                    ix[key].topics.forEach(function (topic) {
+                        if (topic == newTopic) {
+                            terms.push(key);
+                        }
+                    });
+                });
 
-                return (fb !== undefined) ? this.loadTerm(term, fb) : "";
-                 */
+                this.current_terms = terms;
             }
         },
-        mounted() {
-            this.getCurrentTerms();
+        created: function() {
             this.loadDictionary();
+            this.refreshTerms(this.current_topic);
+        },
+        watch: {
+            current_topic: function(newTopic) {
+                this.refreshTerms(newTopic);
+            }
         }
-    }
+    };
 </script>
-
-<style>
-
-</style>

@@ -1,3 +1,3 @@
 module.exports = {
-    camp: {image: 'camp.png', topics: ['basic']},
+    camp: {/*image: 'camp.png',*/ topics: ['basic']},
 };
