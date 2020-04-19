@@ -1,19 +1,23 @@
 <template>
     <v-app id="main">
-        <v-app-bar app clipped-left="" color="green" dark>
+        <v-app-bar app clipped-left="" color="green" dark class="d-print-none">
             <v-app-bar-nav-icon @click="drawer = !drawer"/>
-            <span class="title ml-3 mr-5">Dictionary</span>
+            <v-toolbar-title class="title ml-3 mr-5">{{ $t("appname") }}</v-toolbar-title>
+            <v-spacer />
+            <div class="locale-changer align-center float-right">
+                <v-select :items="languagesSelector" v-model="$i18n.locale" @change="languageChanged"></v-select>
+            </div>
         </v-app-bar>
 
-        <v-navigation-drawer v-model="drawer" app clipped color="grey lighten-4">
+        <v-navigation-drawer v-model="drawer" app clipped color="grey lighten-4" class="d-print-none">
             <v-list class="grey lighten-4">
 
-                <v-subheader>Topics</v-subheader>
+                <v-subheader>{{ $t("topics") }}</v-subheader>
                 <v-list-item-group v-model="current_topic">
                     <template v-for="(topic, code) in topics">
                         <v-list-item v-if="!topic.hide" :key="`item-${code}`" :value="code">
                             <v-list-item-content>
-                                <v-list-item-title v-text="topic.title"></v-list-item-title>
+                                <v-list-item-title>{{ $t(code) === "" ? topic.title : $t(code) }}</v-list-item-title>
                             </v-list-item-content>
                         </v-list-item>
                     </template>
@@ -21,7 +25,7 @@
 
                 <v-divider dark class="my-4"/>
 
-                <v-subheader>Languages</v-subheader>
+                <v-subheader>{{ $t("languages") }}</v-subheader>
                 <v-list-item-group v-model="current_languages" multiple>
                     <template v-for="(lang, code) in languages">
                         <v-list-item dense v-if="!lang.hide" :key="`item-${code}`" :value="code">
@@ -31,7 +35,8 @@
                                 </v-list-item-content>
 
                                 <v-list-item-action class="lang_check">
-                                    <v-checkbox :input-value="active" :true-value="code" @click="toggle"></v-checkbox>
+                                    <v-checkbox :input-value="active" :true-value="code" @click="toggle"
+                                                color="green"></v-checkbox>
                                 </v-list-item-action>
                             </template>
                         </v-list-item>
@@ -42,12 +47,12 @@
             </v-list>
         </v-navigation-drawer>
 
-        <v-content>
+        <v-content class="content">
             <v-container class="terms" fluid grid-list-xl>
                 <v-layout wrap justify-space-around>
                     <v-flex v-for="term in current_terms" v-bind:key="term" class="term">
-                        <v-card width="180px">
-                            <v-img v-if="index[term].image" class="term_image" :src="index[term].image" alt="">
+                        <v-card min-width="180px">
+                            <v-img v-if="index[term].image" class="term_image" :src="'./images/' + index[term].image" alt="">
                             </v-img>
                             <v-card-text class="term_descriptions">
                                 <div v-for="language in current_languages" v-bind:key="language"
@@ -82,6 +87,7 @@
             current_languages: ["en", "de-ch"],
             current_terms: [],
             dictionary: {},
+            locales: ["en", "de"]
         }),
         methods: {
             loadTerm: function (term, language) {
@@ -111,12 +117,20 @@
                 });
 
                 this.current_terms = terms;
+            },
+            languageChanged: function(newLanguage) {
+                localStorage.setItem("locale", JSON.stringify(newLanguage));
             }
         },
         created: function () {
             var storedLanguages = JSON.parse(localStorage.getItem("current_languages"));
             if (storedLanguages) {
                 this.current_languages = storedLanguages;
+            }
+
+            var storedLanguage = JSON.parse(localStorage.getItem("locale"));
+            if (storedLanguage) {
+                this.$i18n.locale = storedLanguage;
             }
 
             var storedTopic = JSON.parse(localStorage.getItem("current_topic"));
@@ -134,7 +148,18 @@
             current_languages: function (newLanguages) {
                 localStorage.setItem("current_languages", JSON.stringify(newLanguages));
             },
-
+        },
+        computed: {
+            languagesSelector: function () {
+                var e = [];
+                for (var lang in this.languages) {
+                    if (this.languages[lang]['pageLocale'] === true) {
+                        e.push({text: this.languages[lang]['name'], value: lang});
+                    }
+                }
+                console.log(e);
+                return e;
+            }
         }
     };
 </script>
@@ -143,4 +168,15 @@
     .lang_check {
         margin: 0 !important;
     }
+
+    .locale-changer {
+        padding-top: 24px;
+    }
+
+    @media print {
+        .content {
+            padding: 0 !important;
+        }
+    }
+
 </style>

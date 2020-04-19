@@ -1,4 +1,8 @@
 {
-  "message": "hallo i18n !!",
+  "appname": "Wörterbuch",
+  "topics": "Themen",
+  "languages": "Sprachen",
+
+  "basic": "Basisausdrücke",
   "camp": "Lager"
 }
