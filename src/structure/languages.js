@@ -1,17 +1,20 @@
 module.exports =
     {
-        "de-ch": {name: "Deutsch (Schweiz)", fallback: "de"},
-        "de": {name: "Deutsch", hide: true, pageLocale: true},
+        "de-CH": {name: "Deutsch (Schweiz)", fallback: "de", pageLocale: true},
+        "de": {name: "Deutsch", hide: true},
         "en": {name: "English", pageLocale: true},
-        "fr-ch": {name: "Français (Suisse)", fallback: "fr"},
-        "fr": {name: "Français", hide: true, pageLocale: true},
-        "it-ch": {name: "Italiano (Svizzera)", fallback: "it"},
+        "fr-CH": {name: "Français (Suisse)", fallback: "fr", pageLocale: true},
+        "fr": {name: "Français", hide: true},
+        "it-CH": {name: "Italiano (Svizzera)", fallback: "it"},
         "it": {name: "Italiano", hide: true},
         "rm": {name: "Rumantsch", hide: true},
         "no": {name: "Norsk",},
         "fi": {name: "Suomi", pageLocale: true},
-        "sv-fi": {name: "Svenska (Finland)", fallback: "sv"},
+        "sv-FI": {name: "Svenska (Finland)", fallback: "sv"},
         "sv": {name: "Svenska", hide: true},
-        "smn": {name: "sami", hide: true},
+        "smn": {name: "Anarâškielâ", hide: true},
         "eo": {name: "Esperanto",},
+        "gsw": {name: "Schwizerdütsch", fallback: "de-CH", pageLocale: true},
+
+        "en-x-image": {name: "image",hide: true},
     };

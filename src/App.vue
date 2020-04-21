@@ -2,9 +2,9 @@
     <v-app id="main">
         <v-app-bar app clipped-left="" color="green" dark class="d-print-none">
             <v-app-bar-nav-icon @click="drawer = !drawer"/>
-            <v-toolbar-title class="title">{{ $t("appname") }}</v-toolbar-title>
+            <v-toolbar-title class="title col-5">{{ flup($t("appname")) }}</v-toolbar-title>
             <v-spacer/>
-            <div class="locale-changer align-center float-right">
+            <div class="locale-changer align-center float-right col-5">
                 <v-select :items="languagesSelector" v-model="$i18n.locale" @change="languageChanged"></v-select>
             </div>
         </v-app-bar>
@@ -12,12 +12,12 @@
         <v-navigation-drawer v-model="drawer" app clipped color="grey lighten-4" class="d-print-none">
             <v-list class="grey lighten-4">
 
-                <v-subheader>{{ $t("topics") }}</v-subheader>
+                <v-subheader>{{ flup($t("topics")) }}</v-subheader>
                 <v-list-item-group v-model="current_topic">
                     <template v-for="(topic, code) in topics">
                         <v-list-item v-if="!topic.hide" :key="`item-${code}`" :value="code">
                             <v-list-item-content>
-                                <v-list-item-title>{{ $t(code) === "" ? topic.title : $t(code) }}</v-list-item-title>
+                                <v-list-item-title>{{ $t(code) === "" ? topic.title : flup($t(code)) }}</v-list-item-title>
                             </v-list-item-content>
                         </v-list-item>
                     </template>
@@ -25,7 +25,7 @@
 
                 <v-divider dark class="my-4"/>
 
-                <v-subheader>{{ $t("languages") }}</v-subheader>
+                <v-subheader>{{ flup($t("languages")) }}</v-subheader>
                 <v-list-item-group v-model="current_languages" multiple>
                     <template v-for="(lang, code) in languages">
                         <v-list-item dense v-if="!lang.hide" :key="`item-${code}`" :value="code">
@@ -52,10 +52,7 @@
                 <v-layout wrap justify-space-around>
                     <v-flex v-for="term in current_terms" v-bind:key="term" class="term">
                         <v-card>
-                            <v-img v-if="index[term].image === true" class="term_image"
-                                   :src="'./img/terms/' + term + '.png'" alt=""></v-img>
-                            <v-img v-else-if="index[term].image" class="term_image"
-                                   :src="'./img/terms/' + index[term].image" alt=""></v-img>
+                            <v-img class="term_image" :src="'./img/terms/' + term + '.png'" alt=""></v-img>
                             <v-card-title>{{ $t(term, current_languages[0]) }}</v-card-title>
                             <v-card-text class="term_descriptions">
                                 <div v-for="language in current_languages.slice(1)" v-bind:key="language"
@@ -87,10 +84,10 @@
             languages: languages,
             topics: topics,
             current_topic: "basic",
-            current_languages: ["de-ch", "en"],
+            current_languages: ["de-CH", "en"],
             current_terms: [],
             dictionary: {},
-            locales: ["en", "de"]
+            locales: ["de"]
         }),
         methods: {
             loadTerm: function (term, language) {
@@ -123,8 +120,15 @@
             },
             languageChanged: function (newLanguage) {
                 localStorage.setItem("locale", JSON.stringify(newLanguage));
+                this.updateTitle();
             },
-            doNothing: function () {
+            flup: function(text) {
+                if(text[0]) {
+                    return text.replace(/^./, text[0].toUpperCase());
+                }
+            },
+            updateTitle: function() {
+                window.document.title = this.flup(this.$i18n.t("appname"));
             }
         },
         created: function () {
@@ -144,6 +148,7 @@
             }
 
             this.refreshTerms(this.current_topic);
+            this.updateTitle();
         },
         watch: {
             current_topic: function (newTopic) {
@@ -174,7 +179,15 @@
     }
 
     .locale-changer {
-        padding-top: 24px;
+        margin-top: 18px;
+    }
+
+    .title {
+        padding-left: 0 !important;
+    }
+
+    .term {
+        max-width: 180px;
     }
 
     @media print {

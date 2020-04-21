@@ -27,3 +27,9 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+## Image sources
+* Pictorgrams from Sergio Palao: http://www.arasaac.org/
+* Cevi
+* Knots by Darrin Higgins: https://thenounproject.com/darrin.higgins/collection/knots/

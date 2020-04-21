@@ -20,13 +20,12 @@ function loadLocaleMessages () {
 }
 
 export default new VueI18n({
-  locale: 'en',
+  locale: 'de-CH',
   fallbackLocale: {
+    'gsw': ['de-CH']
   },
   silentFallbackWarn: true,
   silentTranslationWarn: true,
   messages: loadLocaleMessages(),
-  missing: () => {
-    return "";
-  }
+
 })
