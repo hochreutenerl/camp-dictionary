@@ -90,21 +90,6 @@
             locales: ["de"]
         }),
         methods: {
-            loadTerm: function (term, language) {
-                if (term in this.dictionary[language]) {
-                    return this.dictionary[language][term];
-                } else {
-                    return this.loadFallback(term, language);
-                }
-            },
-            loadFallback: function (term, language) {
-                if ('fallback' in this.languages[language]) {
-                    var fbl = this.languages[language]['fallback'];
-                    return this.loadTerm(term, fbl);
-                } else {
-                    return "";
-                }
-            },
             refreshTerms: function (newTopic) {
                 var terms = [];
                 var ix = this.index;

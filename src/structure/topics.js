@@ -6,6 +6,7 @@ module.exports = {
     knots: {title: 'Knots'},
     nature: {title: 'Nature'},
     sports: {title: 'Sports'},
+    orienteering: {title: 'Orienteering'},
     cooking: {title: 'Cooking'},
     /*
     treehouse: {title: 'Treehouse building'},

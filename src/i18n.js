@@ -27,5 +27,7 @@ export default new VueI18n({
   silentFallbackWarn: true,
   silentTranslationWarn: true,
   messages: loadLocaleMessages(),
-
+  missing: function() {
+    return "";
+  }
 })
