@@ -67,6 +67,11 @@
         max-width: 180px;
     }
 
+    .sm.obf-tile .v-card__title, .xs.obf-tile .v-card__title, .sm.obf-tile .v-card__text, .xs.obf-tile .v-card__text {
+        font-size: 0.75rem;
+        line-height: 1rem;
+    }
+
     .sm .obf-image {
         max-height: 150px;
         max-width: 130px;
@@ -75,6 +80,23 @@
     .xs .obf-image {
         max-height: 150px;
         max-width: 105px;
+    }
+
+    .6col {
+
+    .md .obf-image {
+        max-width: 150px;
+    }
+
+    .sm .obf-image {
+        max-width: 80px;
+        max-height: 80px;
+    }
+
+    .xs .obf-image {
+        max-width: 70px;
+    }
+
     }
 
     .link {

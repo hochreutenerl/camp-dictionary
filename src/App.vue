@@ -49,7 +49,8 @@
         </v-navigation-drawer>
 
         <v-content class="content">
-            <v-container v-if="current_topic !== 'aac'" class="terms" fluid grid-list-xl>
+            <open-aac-board v-if="topics[current_topic]['type'] === 'aac'" :folder="topics[current_topic]['folder']"></open-aac-board>
+            <v-container v-else class="terms" fluid grid-list-xl>
                 <v-layout wrap justify-space-around>
                     <v-flex v-for="term in current_terms" v-bind:key="term"
                             class="term xs6 sm4 md3 lg2 xl2">
@@ -66,12 +67,13 @@
                     </v-flex>
                 </v-layout>
             </v-container>
-            <open-aac-board v-else></open-aac-board>
         </v-content>
     </v-app>
 </template>
 
 <script>
+    import 'material-design-icons-iconfont';
+
     import index from './structure/index';
     import languages from './structure/languages';
     import topics from './structure/topics';

@@ -374,8 +374,7 @@
     "no3": "Wanderer (11-16-Jahre-Gruppe)",
     "no4": "Rover (16-25-Jahre-Gruppe)",
     "familyScouting": "Familiengruppe",
-    "uniform": "Kluft / Tracht",
-    "hello": "Hallo"
+    "uniform": "Kluft / Tracht"
   },
   "en": {
     "appname": "dictionary",
@@ -587,7 +586,7 @@
     "tag": "tag",
     "hideSeek": "hide and seek",
     "blindMansBuff": "blind man's buff",
-    "regLightGreenLight": "red light, green light",
+    "redLightGreenLight": "red light, green light",
     "spinningGame": "spinning game",
     "prisonDodgeball": "prison dodgeball",
     "ringTossGame": "ring toss game",
@@ -1074,8 +1073,7 @@
     "fi15": "bivouac",
     "fi16": "luge",
     "no4": "routiers",
-    "uniform": "tenue / uniforme",
-    "hello": "bonjou"
+    "uniform": "tenue / uniforme"
   },
   "no": {
     "appname": "ordbok",
@@ -1368,8 +1366,7 @@
     "no3": "vandrer",
     "no4": "rover",
     "familyScouting": "familiespeider",
-    "uniform": "speiderdrakt",
-    "hello": "hei"
+    "uniform": "speiderdrakt"
   },
   "sv": {
     "appname": "ordbok",
@@ -3127,7 +3124,7 @@
     "climbing": "Chlettere",
     "hideSeek": "Verschteckis",
     "blindMansBuff": "Blindi Chueh",
-    "regLightGreenLight": "Sunne, Mond und Schtern",
+    "redLightGreenLight": "Sunne, Mond und Schtern",
     "ringTossGame": "Ring werfe",
     "parachuteGame": "Fallschirmschpiil",
     "clappingGame": "Klatschschpiil",
@@ -3226,7 +3223,7 @@
     "sled": "Schlitteln",
     "tag": "Fangis",
     "hideSeek": "Versteckis",
-    "regLightGreenLight": "Sunne, Mond und Stern",
+    "redLightGreenLight": "Sunne, Mond und Stern",
     "wheelbarrowRace": "Garettenrennen",
     "tableSoccer": "Töggelichaschte",
     "potato": "Härdöpfel",
