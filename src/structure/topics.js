@@ -15,6 +15,8 @@ module.exports = {
     finland: {title: 'Scouting in Finland'},
      */
 
+    swadesh: {title: 'Swadesh-List'},
+
     aac1: {title: 'AAC1', type: 'aac', folder: 'communikate20'},
     aac2: {title: 'AAC2', type: 'aac', folder: 'core24'}
 };

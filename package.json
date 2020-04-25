@@ -11,8 +11,8 @@
     "capacitor-open": "vue-cli-service capacitor-open",
     "capacitor-update": "vue-cli-service capacitor-update",
     "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'",
-    "loadTranslations": "node src/plugins/spreadsheet.js --spreadsheet=16alnROkJ__37BM4sKzlyJ7LYCvwgjr0U1rA0T6OtybA --sheet=dict_translation --format=json --output=src/locales/all.json && node src/plugins/spreadsheet.js --spreadsheet=1ZSIuWrSbhluLYiEhfvV9yU_Mcy90ExPb6TqOcYLOp6E --sheet=dict_translation --format=json --output=src/locales/swadesh.json",
-    "extract": "extract-zip /src/communikate-20.zip /src/assets"
+    "extract": "extract-zip /src/communikate-20.zip /src/assets",
+    "loadTranslations": "node loadTranslations"
   },
   "dependencies": {
     "@capacitor/cli": "^1.0.0-alpha.38",

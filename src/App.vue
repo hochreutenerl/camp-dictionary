@@ -49,13 +49,14 @@
         </v-navigation-drawer>
 
         <v-content class="content">
-            <open-aac-board v-if="topics[current_topic]['type'] === 'aac'" :folder="topics[current_topic]['folder']"></open-aac-board>
+            <open-aac-board v-if="topics[current_topic]['type'] === 'aac'"
+                            :folder="topics[current_topic]['folder']"></open-aac-board>
             <v-container v-else class="terms" fluid grid-list-xl>
                 <v-layout wrap justify-space-around>
-                    <v-flex v-for="term in current_terms" v-bind:key="term"
+                    <v-flex v-for="(term, i) in current_terms" v-bind:key="i"
                             class="term xs6 sm4 md3 lg2 xl2">
                         <v-card>
-                            <v-img class="term_image" :src="'./img/terms/' + term + '.png'" alt=""></v-img>
+                            <v-img class="term_image" :src="imgPath(term,i)" alt=""></v-img>
                             <v-card-title>{{ flup($t(term)) }}</v-card-title>
                             <v-card-text class="term_descriptions">
                                 <div v-for="language in current_languages" v-bind:key="language"
@@ -79,6 +80,7 @@
     import topics from './structure/topics';
 
     import OpenAacBoard from "@/Components/OpenAacBoard";
+    import Swadesh from "@/locales/swadesh";
 
     export default {
         name: 'App',
@@ -99,6 +101,12 @@
         methods: {
             refreshTerms: function (newTopic) {
                 var terms = [];
+
+                if (newTopic === 'swadesh') {
+                    for (var key in Swadesh[this.$i18n.locale]) {
+                        terms.push(key);
+                    }
+                }
 
                 var ix = this.index;
                 Object.keys(ix).forEach(function (key) {
@@ -124,6 +132,13 @@
             updateTitle: function () {
                 window.document.title = this.flup(this.$i18n.t("appname"));
             },
+            imgPath: function (term, i) {
+                if (this.current_topic === 'swadesh') {
+                    return './img/swadesh/' + (i+1) + '.png';
+                } else {
+                    return './img/terms/' + term + '.png';
+                }
+            }
         },
         created: function () {
             var storedLanguages = JSON.parse(localStorage.getItem("current_languages"));
@@ -162,7 +177,7 @@
                     }
                 }
                 return e;
-            },
+            }
         }
     };
 </script>

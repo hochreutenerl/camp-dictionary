@@ -3,7 +3,7 @@
         <v-img class="obf-image" :src="imgSource(tile.image_id)" :alt="tile.label"/>
         <span v-if="tile.load_board != null" class="link">&nbsp;</span>
 
-        <v-card-title class="term_title justify-center pa-0">{{ $t(tile.label) }}</v-card-title>
+        <v-card-title class="term_title justify-center pa-0">{{ this.$i18n.locale === 'en' ? tile.label :$t(tile.label) }}</v-card-title>
         <v-card-text class="term_descriptions text-center">
             <div v-for="language in current_languages" v-bind:key="language" class="obf-label">
                 {{ $t(tile.label, language) }} ({{language}})
@@ -54,7 +54,7 @@
     .obf-image {
         margin: 0 auto;
         max-height: 180px;
-        max-width: 200px;
+        max-width: 180px;
     }
 
     .lg .obf-image {

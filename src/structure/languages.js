@@ -12,7 +12,7 @@ module.exports =
         "fi": {name: "Suomi", pageLocale: true},
         "sv-FI": {name: "Svenska (Finland)", fallback: "sv"},
         "sv": {name: "Svenska", hide: true},
-        "smn": {name: "Anarâškielâ", hide: true},
+        "smn": {name: "Anarâškielâ"},
         "eo": {name: "Esperanto",},
         "gsw": {name: "Schwizerdütsch", hide:true , fallback: "de-CH"},
 
