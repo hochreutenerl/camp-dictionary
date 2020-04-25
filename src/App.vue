@@ -49,12 +49,9 @@
         </v-navigation-drawer>
 
         <v-content class="content">
-            <v-container class="terms" fluid grid-list-xl>
+            <v-container v-if="current_topic !== 'aac'" class="terms" fluid grid-list-xl>
                 <v-layout wrap justify-space-around>
-                    <div class="aac" v-if="current_topic === 'aac'">
-                        <open-aac-board></open-aac-board>
-                    </div>
-                    <v-flex v-else v-for="term in current_terms" v-bind:key="term"
+                    <v-flex v-for="term in current_terms" v-bind:key="term"
                             class="term xs6 sm4 md3 lg2 xl2">
                         <v-card>
                             <v-img class="term_image" :src="'./img/terms/' + term + '.png'" alt=""></v-img>
@@ -69,6 +66,7 @@
                     </v-flex>
                 </v-layout>
             </v-container>
+            <open-aac-board v-else></open-aac-board>
         </v-content>
     </v-app>
 </template>
@@ -188,6 +186,10 @@
         .content {
             padding: 0 !important;
         }
+    }
+
+    .aac {
+        width: 100%;
     }
 
 </style>

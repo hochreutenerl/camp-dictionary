@@ -1,15 +1,15 @@
 <template>
-    <div v-if="tile.id" class="obf-tile" :style="style" @click="switchBoard(tile.load_board)">
-        <span v-if="tile.load_board != null">!</span>
+    <v-card v-if="tile.id" :class="this.imageSize + ' obf-tile'" :style="style" @click="switchBoard(tile.load_board)">
+        <v-img class="obf-image" :src="imgSource(tile.image_id)" :alt="tile.label"/>
+        <span v-if="tile.load_board != null" class="link">&nbsp;</span>
 
-        <span>{{ $t(tile.label) }}</span>
-        <img class="obf-image" :src="imgSource(tile.image_id)" :alt="tile.label">
-        <div class="term_descriptions">
+        <v-card-title class="term_title justify-center pa-0">{{ $t(tile.label) }}</v-card-title>
+        <v-card-text class="term_descriptions text-center">
             <div v-for="language in current_languages" v-bind:key="language" class="obf-label">
                 {{ $t(tile.label, language) }} ({{language}})
             </div>
-        </div>
-    </div>
+        </v-card-text>
+    </v-card>
 </template>
 
 <script>
@@ -36,8 +36,11 @@
                 }
                 return style;
             },
-            current_languages: function() {
+            current_languages: function () {
                 return this.$root.$children[0].$data.current_languages;
+            },
+            imageSize: function () {
+                return (this.$vuetify.breakpoint.name);
             }
         }
     }
@@ -45,14 +48,52 @@
 
 <style scoped>
     .obf-tile {
-        display: grid;
-        border-width: 2px;
-        border-style: solid;
-
-        text-align: center;
+        position: relative;
     }
 
     .obf-image {
-        width: 100px;
+        margin: 0 auto;
+        max-height: 180px;
+        max-width: 200px;
     }
+
+    .lg .obf-image {
+        max-height: 180px;
+        max-width: 200px;
+    }
+
+    .md .obf-image {
+        max-height: 180px;
+        max-width: 180px;
+    }
+
+    .sm .obf-image {
+        max-height: 150px;
+        max-width: 130px;
+    }
+
+    .xs .obf-image {
+        max-height: 150px;
+        max-width: 105px;
+    }
+
+    .link {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 15px;
+        height: 15px;
+        background-color: red;
+        border-radius: 50%;
+    }
+
+    .term_title {
+        text-align: center;
+    }
+
+    .term_descriptions {
+        padding-bottom: 0;
+    }
+
+
 </style>

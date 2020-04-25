@@ -1,11 +1,11 @@
 <template>
     <div class="obf-board">
         <table>
-            <tr v-for="i in board.grid.rows" :key="i">
-                <td v-for="j in board.grid.columns" :key="j">
+            <v-row v-for="i in board.grid.rows" :key="i">
+                <v-col v-for="j in board.grid.columns" :key="j">
                     <obf-board-tile :tile="getTile(i,j)"></obf-board-tile>
-                </td>
-            </tr>
+                </v-col>
+            </v-row>
         </table>
     </div>
 </template>

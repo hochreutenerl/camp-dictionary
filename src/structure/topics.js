@@ -15,5 +15,5 @@ module.exports = {
     finland: {title: 'Scouting in Finland'},
      */
 
-    aac: {title: 'AAC', hide: true}
+    aac: {title: 'AAC'}
 };
