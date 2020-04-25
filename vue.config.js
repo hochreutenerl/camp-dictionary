@@ -11,7 +11,8 @@ module.exports = {
         "vuetify"
     ],
     pwa: {
-        name: "Camp dictionary",
+        name: "International Camp Dictionary",
+        short_name: "camp dict",
         themeColor: "#4caf50",
     }
 };

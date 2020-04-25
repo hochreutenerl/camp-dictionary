@@ -17,7 +17,8 @@
                     <template v-for="(topic, code) in topics">
                         <v-list-item v-if="!topic.hide" :key="`item-${code}`" :value="code">
                             <v-list-item-content>
-                                <v-list-item-title>{{ $t(code) === "" ? topic.title : flup($t(code)) }}</v-list-item-title>
+                                <v-list-item-title>{{ $t(code) === "" ? topic.title : flup($t(code)) }}
+                                </v-list-item-title>
                             </v-list-item-content>
                         </v-list-item>
                     </template>
@@ -50,12 +51,14 @@
         <v-content class="content">
             <v-container class="terms" fluid grid-list-xl>
                 <v-layout wrap justify-space-around>
-                    <v-flex v-for="term in current_terms" v-bind:key="term" class="term">
+                    <v-flex v-for="term in current_terms" v-bind:key="term" class="term xs6 sm4 md3 lg2 xl2">
                         <v-card>
-                            <v-img class="term_image" :src="'./img/terms/' + term + '.png'" alt=""></v-img>
-                            <v-card-title>{{ $t(term, current_languages[0]) }}</v-card-title>
+                            <v-img v-if="current_topic !== 'swadesh'" class="term_image"
+                                   :src="'./img/terms/' + term + '.png'" alt=""></v-img>
+                            <v-img v-else class="term_image" :src="'./img/' + term.replace('-', '/') + '.png'" alt=""></v-img>
+                            <v-card-title>{{ flup($t(term)) }}</v-card-title>
                             <v-card-text class="term_descriptions">
-                                <div v-for="language in current_languages.slice(1)" v-bind:key="language"
+                                <div v-for="language in current_languages" v-bind:key="language"
                                      class="term_description text--primary">
                                     {{ $t(term, language) }} ({{language}})
                                 </div>
@@ -84,7 +87,7 @@
             languages: languages,
             topics: topics,
             current_topic: "basic",
-            current_languages: ["de-CH", "en"],
+            current_languages: ["en"],
             current_terms: [],
             dictionary: {},
             locales: ["de"]
@@ -92,6 +95,13 @@
         methods: {
             refreshTerms: function (newTopic) {
                 var terms = [];
+
+                if (newTopic === 'swadesh') {
+                    for (var i = 1; i <= 207; i++) {
+                        terms.push('swadesh-' + i);
+                    }
+                }
+
                 var ix = this.index;
                 Object.keys(ix).forEach(function (key) {
                     ix[key].topics.forEach(function (topic) {
@@ -101,20 +111,29 @@
                     });
                 });
 
+
                 this.current_terms = terms;
             },
             languageChanged: function (newLanguage) {
                 localStorage.setItem("locale", JSON.stringify(newLanguage));
                 this.updateTitle();
             },
-            flup: function(text) {
-                if(text[0]) {
+            flup: function (text) {
+                if (text[0]) {
                     return text.replace(/^./, text[0].toUpperCase());
                 }
             },
-            updateTitle: function() {
+            updateTitle: function () {
                 window.document.title = this.flup(this.$i18n.t("appname"));
-            }
+            },
+            loadSwadesh: function () {
+                return import('./locales/swadesh.json').then(
+                    messages => {
+                        for (var code in messages) {
+                            this.$i18n.mergeLocaleMessage(code, messages[code]);
+                        }
+                    });
+            },
         },
         created: function () {
             var storedLanguages = JSON.parse(localStorage.getItem("current_languages"));
@@ -137,6 +156,10 @@
         },
         watch: {
             current_topic: function (newTopic) {
+                if (newTopic === 'swadesh') {
+                    this.loadSwadesh();
+                }
+
                 this.refreshTerms(newTopic);
                 localStorage.setItem("current_topic", JSON.stringify(newTopic));
             },
