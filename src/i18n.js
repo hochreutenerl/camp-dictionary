@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 
-Vue.use(VueI18n)
+Vue.use(VueI18n);
+
+window.missingCodes = [];
 
 function loadLocaleMessages () {
   return require('./locales/all.json');
@@ -27,7 +29,11 @@ export default new VueI18n({
   silentFallbackWarn: true,
   silentTranslationWarn: true,
   messages: loadLocaleMessages(),
-  missing: function() {
+  missing: function(lang, code) {
+    if(lang === 'en') {
+      window.missingCodes.push(code);
+      return code;
+    }
     return "";
   }
 })

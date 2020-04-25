@@ -43,7 +43,7 @@ module.exports = {
     matches: {topics: ['equipment']},
     mattress: {topics: ['equipment']},
     sleepingBag: {topics: ['equipment']},
-    dayPack: {topics: ['equipment']},
+    daypack: {topics: ['equipment']},
     backpack: {topics: ['equipment']},
     string: {topics: ['equipment']},
     gloves: {topics: ['equipment']},

@@ -51,7 +51,11 @@
         <v-content class="content">
             <v-container class="terms" fluid grid-list-xl>
                 <v-layout wrap justify-space-around>
-                    <v-flex v-for="term in current_terms" v-bind:key="term" class="term xs6 sm4 md3 lg2 xl2">
+                    <div class="aac" v-if="current_topic === 'aac'">
+                        <open-aac-board></open-aac-board>
+                    </div>
+                    <v-flex v-else v-for="term in current_terms" v-bind:key="term"
+                            class="term xs6 sm4 md3 lg2 xl2">
                         <v-card>
                             <v-img class="term_image" :src="'./img/terms/' + term + '.png'" alt=""></v-img>
                             <v-card-title>{{ flup($t(term)) }}</v-card-title>
@@ -74,10 +78,12 @@
     import languages from './structure/languages';
     import topics from './structure/topics';
 
+    import OpenAacBoard from "@/Components/OpenAacBoard";
+
     export default {
         name: 'App',
 
-        components: {},
+        components: {OpenAacBoard},
 
         data: () => ({
             drawer: null,

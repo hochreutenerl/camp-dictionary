@@ -11,12 +11,16 @@
     "capacitor-open": "vue-cli-service capacitor-open",
     "capacitor-update": "vue-cli-service capacitor-update",
     "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'",
-    "loadTranslations": "node src/plugins/spreadsheet.js --spreadsheet=16alnROkJ__37BM4sKzlyJ7LYCvwgjr0U1rA0T6OtybA --sheet=dict_translation --format=json --output=src/locales/all.json && node src/plugins/spreadsheet.js --spreadsheet=1ZSIuWrSbhluLYiEhfvV9yU_Mcy90ExPb6TqOcYLOp6E --sheet=dict_translation --format=json --output=src/locales/swadesh.json"
+    "loadTranslations": "node src/plugins/spreadsheet.js --spreadsheet=16alnROkJ__37BM4sKzlyJ7LYCvwgjr0U1rA0T6OtybA --sheet=dict_translation --format=json --output=src/locales/all.json && node src/plugins/spreadsheet.js --spreadsheet=1ZSIuWrSbhluLYiEhfvV9yU_Mcy90ExPb6TqOcYLOp6E --sheet=dict_translation --format=json --output=src/locales/swadesh.json",
+    "extract": "extract-zip /src/communikate-20.zip /src/assets"
   },
   "dependencies": {
     "@capacitor/cli": "^1.0.0-alpha.38",
     "@capacitor/core": "^1.0.0-alpha.38",
     "core-js": "^3.6.4",
+    "extract-zip": "^2.0.0",
+    "fs": "0.0.1-security",
+    "jszip": "^3.4.0",
     "register-service-worker": "^1.7.1",
     "vue": "^2.6.11",
     "vue-i18n": "^8.0.0",
@@ -32,6 +36,7 @@
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
     "google-spreadsheet-vue-i18n": "^1.0.3",
+    "raw-loader": "^4.0.1",
     "sass": "^1.19.0",
     "sass-loader": "^8.0.0",
     "vue-cli-plugin-i18n": "^0.6.1",

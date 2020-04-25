@@ -5,7 +5,7 @@
     "languages": "Sprachen",
     "basic": "Grundlegende Ausdrücke",
     "camp": "Lager",
-    "orga": "Organisation",
+    "organisation": "Organisation",
     "tech": "Pioniertechnik",
     "knots": "Knoten",
     "equipment": "Aurüstung",
@@ -374,7 +374,8 @@
     "no3": "Wanderer (11-16-Jahre-Gruppe)",
     "no4": "Rover (16-25-Jahre-Gruppe)",
     "familyScouting": "Familiengruppe",
-    "uniform": "Kluft / Tracht"
+    "uniform": "Kluft / Tracht",
+    "hello": "Hallo"
   },
   "en": {
     "appname": "dictionary",
@@ -382,7 +383,7 @@
     "languages": "languages",
     "basic": "basic terms",
     "camp": "camp",
-    "orga": "organisation",
+    "organisation": "organisation",
     "tech": "tech",
     "knots": "knots",
     "equipment": "equipment",
@@ -762,7 +763,7 @@
     "topics": "sujets",
     "languages": "langues",
     "camp": "camp",
-    "orga": "organisation",
+    "organisation": "organisation",
     "tech": "technique de pionnier",
     "knots": "noeuds",
     "sports": "sports et jeux",
@@ -1073,7 +1074,8 @@
     "fi15": "bivouac",
     "fi16": "luge",
     "no4": "routiers",
-    "uniform": "tenue / uniforme"
+    "uniform": "tenue / uniforme",
+    "hello": "bonjou"
   },
   "no": {
     "appname": "ordbok",
@@ -1081,7 +1083,7 @@
     "languages": "språk",
     "basic": "grundbegreper",
     "camp": "leir",
-    "orga": "organisasjon",
+    "organisation": "organisasjon",
     "tech": "speiderteknikk",
     "knots": "knuter",
     "equipment": "utstyr",
@@ -1366,7 +1368,8 @@
     "no3": "vandrer",
     "no4": "rover",
     "familyScouting": "familiespeider",
-    "uniform": "speiderdrakt"
+    "uniform": "speiderdrakt",
+    "hello": "hei"
   },
   "sv": {
     "appname": "ordbok",
@@ -1374,7 +1377,7 @@
     "languages": "språk",
     "basic": "allmän uttryck",
     "camp": "läger",
-    "orga": "organisation",
+    "organisation": "organisation",
     "tech": "scoutkunskaper",
     "knots": "knopar",
     "equipment": "utrustning",
@@ -1663,7 +1666,7 @@
     "languages": "lingvoj",
     "basic": "terminoj ĝeneralaj",
     "camp": "tendaro",
-    "orga": "organizado",
+    "organisation": "organizado",
     "tech": "pionirarto",
     "knots": "nodoj",
     "equipment": "ekipaĵo",
@@ -1938,7 +1941,7 @@
     "languages": "kielet",
     "basic": "perustermit",
     "camp": "leiri",
-    "orga": "järjestö",
+    "organisation": "järjestö",
     "tech": "partiotaidot",
     "knots": "solmut",
     "equipment": "varusteet",
@@ -2562,7 +2565,7 @@
     "topics": "temas",
     "languages": "linguas",
     "camp": "champ",
-    "orga": "organisaziun",
+    "organisation": "organisaziun",
     "tech": "tecnica da pionier",
     "knots": "nufs",
     "equipment": "equipament",
@@ -2821,7 +2824,7 @@
   "smn": {
     "appname": "sänikirje",
     "camp": "leirâ",
-    "orga": "ornijdume",
+    "organisation": "ornijdume",
     "knots": "čuolmah",
     "equipment": "reiskääpih",
     "course": "kurssâ",

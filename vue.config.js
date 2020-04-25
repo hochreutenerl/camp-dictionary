@@ -14,5 +14,13 @@ module.exports = {
         name: "International Camp Dictionary",
         short_name: "camp dict",
         themeColor: "#4caf50",
+    },
+    configureWebpack: {
+        module: {
+            rules: [ {
+                test: /\.obf$/,
+                loader: 'raw-loader', // npm install -D raw-loader
+            }]
+        }
     }
 };

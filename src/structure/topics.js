@@ -14,4 +14,6 @@ module.exports = {
     junds: {title: 'Youth and Sports'},
     finland: {title: 'Scouting in Finland'},
      */
+
+    aac: {title: 'AAC', hide: true}
 };
