@@ -14,5 +14,4 @@ module.exports = {
     junds: {title: 'Youth and Sports'},
     finland: {title: 'Scouting in Finland'},
      */
-    swadesh: {title: 'Swadesh list'},
 };

@@ -53,9 +53,7 @@
                 <v-layout wrap justify-space-around>
                     <v-flex v-for="term in current_terms" v-bind:key="term" class="term xs6 sm4 md3 lg2 xl2">
                         <v-card>
-                            <v-img v-if="current_topic !== 'swadesh'" class="term_image"
-                                   :src="'./img/terms/' + term + '.png'" alt=""></v-img>
-                            <v-img v-else class="term_image" :src="'./img/' + term.replace('-', '/') + '.png'" alt=""></v-img>
+                            <v-img class="term_image" :src="'./img/terms/' + term + '.png'" alt=""></v-img>
                             <v-card-title>{{ flup($t(term)) }}</v-card-title>
                             <v-card-text class="term_descriptions">
                                 <div v-for="language in current_languages" v-bind:key="language"
@@ -96,12 +94,6 @@
             refreshTerms: function (newTopic) {
                 var terms = [];
 
-                if (newTopic === 'swadesh') {
-                    for (var i = 1; i <= 207; i++) {
-                        terms.push('swadesh-' + i);
-                    }
-                }
-
                 var ix = this.index;
                 Object.keys(ix).forEach(function (key) {
                     ix[key].topics.forEach(function (topic) {
@@ -126,14 +118,6 @@
             updateTitle: function () {
                 window.document.title = this.flup(this.$i18n.t("appname"));
             },
-            loadSwadesh: function () {
-                return import('./locales/swadesh.json').then(
-                    messages => {
-                        for (var code in messages) {
-                            this.$i18n.mergeLocaleMessage(code, messages[code]);
-                        }
-                    });
-            },
         },
         created: function () {
             var storedLanguages = JSON.parse(localStorage.getItem("current_languages"));
@@ -156,10 +140,6 @@
         },
         watch: {
             current_topic: function (newTopic) {
-                if (newTopic === 'swadesh') {
-                    this.loadSwadesh();
-                }
-
                 this.refreshTerms(newTopic);
                 localStorage.setItem("current_topic", JSON.stringify(newTopic));
             },
