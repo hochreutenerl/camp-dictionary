@@ -16,7 +16,7 @@ function loadLocaleMessages() {
     for(var topic in topics) {
         if(topics[topic]['type'] === 'aac') {
             var aacLang = require('./locales/'+ topics[topic]['folder'] +'.json');
-            mergeLangObject(merged, aacLang);
+            mergeLangObject(merged, aacLang/*, topics[topic]['folder']*/);
         }
     }
     console.log(aac);
@@ -36,11 +36,18 @@ function loadLocaleMessages() {
      */
 }
 
-function mergeLangObject(obj1, obj2) {
+function mergeLangObject(obj1, obj2, prefix) {
     for (var lang in obj1) {
         if (obj2[lang]) {
             for (var attrname in obj2[lang]) {
-                obj1[lang] [attrname] = obj2[lang][attrname];
+                if(prefix != undefined) {
+                    if(!obj1[lang][prefix]) {
+                        obj1[lang][prefix] = {};
+                    }
+                    obj1[lang][prefix][attrname] = obj2[lang][attrname];
+                } else {
+                    obj1[lang][attrname] = obj2[lang][attrname];
+                }
             }
         }
     }
@@ -62,7 +69,7 @@ export default new VueI18n({
     silentTranslationWarn: true,
     messages: loadLocaleMessages(),
     missing: function (lang, code,wtf) {
-        if(wtf.$i18n.te(camelize(code), lang)) {
+        if(wtf != null && wtf.$i18n.t(camelize(code), lang) !== "") {
             return wtf.$i18n.t(camelize(code), lang);
         }
 

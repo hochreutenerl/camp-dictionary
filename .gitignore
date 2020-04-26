@@ -1,4 +1,6 @@
 public/img/terms
+public/img/swadesh
+src/boards/
 
 .DS_Store
 node_modules
@@ -21,3 +23,4 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
+

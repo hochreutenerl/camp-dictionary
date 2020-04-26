@@ -1,12 +1,14 @@
 <template>
-    <v-app id="main">
-        <v-app-bar app clipped-left="" color="green" dark class="d-print-none">
+    <v-app id="main" :class="this.$vuetify.breakpoint.name">
+        <v-app-bar app clipped-left="" color="green" dark class="app-bar d-print-none d-flex flex-row">
             <v-app-bar-nav-icon @click="drawer = !drawer"/>
-            <v-toolbar-title class="title col-5">{{ flup($t("appname")) }}</v-toolbar-title>
-            <v-spacer/>
-            <div class="locale-changer align-center float-right col-5">
-                <v-select :items="languagesSelector" v-model="$i18n.locale" @change="languageChanged"></v-select>
-            </div>
+            <v-toolbar-title class="pa-0 col-lg-6">{{ flup($t("appname")) }}</v-toolbar-title>
+            <v-spacer class="hidden-sm-and-down"></v-spacer>
+            <v-text-field flat solo-inverted hide-details prepend-inner-icon="mdi-magnify" label="Search"
+                          class="search-bar col-lg-2 pa-1" @input="search"/>
+            <v-spacer></v-spacer>
+            <v-select class="float-right locale-changer pa-1 flex-column col-lg-2 flex-shrink-1"
+                      :items="languagesSelector" v-model="$i18n.locale" @change="languageChanged"></v-select>
         </v-app-bar>
 
         <v-navigation-drawer v-model="drawer" app clipped color="grey lighten-4" class="d-print-none">
@@ -124,6 +126,33 @@
                 localStorage.setItem("locale", JSON.stringify(newLanguage));
                 this.updateTitle();
             },
+            search: function (search) {
+                if (search === "") {
+                    this.refreshTerms(this.current_topic);
+                } else {
+                    var terms = [];
+                    var app = this;
+
+                    var ix = this.index;
+                    Object.keys(ix).forEach(function (key) {
+                        if(app.termMatches(key, search)) {
+                            terms.push(key);
+                        }
+                    });
+
+                    this.current_terms = terms;
+                }
+            },
+            termMatches: function(key, search) {
+                search = search.toLowerCase();
+                for(var lang in this.current_languages) {
+                    var trans = this.$i18n.t(key, this.current_languages[lang]);
+                    if(trans != null && trans.toLowerCase().includes(search)) {
+                        return true;
+                    }
+                }
+                return false;
+            },
             flup: function (text) {
                 if (text[0]) {
                     return text.replace(/^./, text[0].toUpperCase());
@@ -134,7 +163,7 @@
             },
             imgPath: function (term, i) {
                 if (this.current_topic === 'swadesh') {
-                    return './img/swadesh/' + (i+1) + '.png';
+                    return './img/swadesh/' + (i + 1) + '.png';
                 } else {
                     return './img/terms/' + term + '.png';
                 }
@@ -187,8 +216,13 @@
         margin: 0 !important;
     }
 
+    .xs .locale-changer {
+        width: 80px;
+    }
+
     .locale-changer {
-        margin-top: 18px;
+        margin-top: 20px !important;
+        margin-bottom: 0 !important;
     }
 
     .title {
@@ -205,7 +239,15 @@
         }
     }
 
+    .search-bar {
+        min-width: 48px !important;
+    }
+
     .aac {
+        width: 100%;
+    }
+
+    .app-bar > div {
         width: 100%;
     }
 

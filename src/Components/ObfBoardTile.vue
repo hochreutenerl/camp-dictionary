@@ -3,10 +3,11 @@
         <v-img class="obf-image" :src="imgSource(tile.image_id)" :alt="tile.label"/>
         <span v-if="tile.load_board != null" class="link">&nbsp;</span>
 
-        <v-card-title class="term_title justify-center pa-0">{{ this.$i18n.locale === 'en' ? tile.label :$t(tile.label) }}</v-card-title>
+        <v-card-title class="term_title justify-center pa-0">{{ this.$i18n.locale === 'en' ? tile.label :$t(tkey) }}
+        </v-card-title>
         <v-card-text class="term_descriptions text-center">
             <div v-for="language in current_languages" v-bind:key="language" class="obf-label">
-                {{ $t(tile.label, language) }} ({{language}})
+                {{ $t(tkey, language) }} ({{language}})
             </div>
         </v-card-text>
     </v-card>
@@ -41,6 +42,14 @@
             },
             imageSize: function () {
                 return (this.$vuetify.breakpoint.name);
+            },
+            tkey: function () {
+                return this.tile.label;
+                /*
+                var topic = this.$root.$children[0].$data.current_topic;
+                console.log(topic);
+                return  this.$root.$children[0].$data.topics[topic]['folder'] + '.' + this.tile.label;
+                 */
             }
         }
     }
@@ -82,7 +91,8 @@
         max-width: 105px;
     }
 
-    .6col {
+    .6
+    col {
 
     .md .obf-image {
         max-width: 150px;

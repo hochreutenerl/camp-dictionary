@@ -7,7 +7,7 @@ module.exports =
         "fr": {name: "Français", hide: true},
         "it-CH": {name: "Italiano (Svizzera)", fallback: "it"},
         "it": {name: "Italiano", hide: true},
-        "rm": {name: "Rumantsch", hide: true},
+        "rm": {name: "Rumantsch"},
         "no": {name: "Norsk",},
         "fi": {name: "Suomi", pageLocale: true},
         "sv-FI": {name: "Svenska (Finland)", fallback: "sv"},
