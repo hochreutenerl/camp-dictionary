@@ -5,15 +5,14 @@ module.exports = {
     firstAid: {title: 'First Aid'},
     knots: {title: 'Knots'},
     nature: {title: 'Nature'},
-    sports: {title: 'Sports'},
+    sportsGames: {title: 'Sports'},
     orienteering: {title: 'Orienteering'},
     cooking: {title: 'Cooking'},
-    /*
-    treehouse: {title: 'Treehouse building'},
-    switzerland: {title: 'Scouting in Switzerland'},
-    junds: {title: 'Youth and Sports'},
-    finland: {title: 'Scouting in Finland'},
-     */
+    treehouse: {title: 'Treehouse building', hide: true},
+    ch: {title: 'Switzerland'},
+    junds: {title: 'Youth and Sports', hide: true},
+    noTopic: {title: 'Norway'},
+    fi: {title: 'Finland'},
 
     swadesh: {title: 'Swadesh-List'},
 

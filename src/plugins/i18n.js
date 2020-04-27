@@ -6,16 +6,16 @@ Vue.use(VueI18n);
 window.missingCodes = [];
 
 function loadLocaleMessages() {
-    var basic = require('./locales/all.json');
-    var swadesh = require('./locales/swadesh.json');
+    var basic = require('@/locales/all.json');
+    var swadesh = require('@/locales/swadesh.json');
 
     var merged = mergeLangObject(basic, swadesh);
 
-    var topics = require('./structure/topics');
+    var topics = require('@/structure/topics');
     var aac = [];
     for(var topic in topics) {
         if(topics[topic]['type'] === 'aac') {
-            var aacLang = require('./locales/'+ topics[topic]['folder'] +'.json');
+            var aacLang = require('@/locales/'+ topics[topic]['folder'] +'.json');
             mergeLangObject(merged, aacLang/*, topics[topic]['folder']*/);
         }
     }

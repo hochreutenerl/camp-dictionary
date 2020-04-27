@@ -145,13 +145,22 @@
             },
             termMatches: function(key, search) {
                 search = search.toLowerCase();
+
+                if(this.termMatchesLocale(key, search, this.$i18n.locale)) {
+                    return true;
+                }
+
                 for(var lang in this.current_languages) {
-                    var trans = this.$i18n.t(key, this.current_languages[lang]);
-                    if(trans != null && trans.toLowerCase().includes(search)) {
+                    if(this.termMatchesLocale(key, search, this.current_languages[lang])) {
                         return true;
                     }
                 }
                 return false;
+            },
+            termMatchesLocale: function(key, search, locale) {
+                var trans = this.$i18n.t(key, locale);
+                return !!(trans != null && trans.toLowerCase().includes(search));
+
             },
             flup: function (text) {
                 if (text[0]) {

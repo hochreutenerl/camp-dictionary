@@ -14,7 +14,7 @@ module.exports =
         "sv": {name: "Svenska", hide: true},
         "smn": {name: "Anarâškielâ"},
         "eo": {name: "Esperanto",},
-        "gsw": {name: "Schwizerdütsch", hide:true , fallback: "de-CH"},
+        "gsw": {name: "Schwizerdütsch", fallback: "de-CH"},
 
         "en-x-image": {name: "image",hide: true},
     };

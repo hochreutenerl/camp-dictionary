@@ -7,7 +7,7 @@
         </v-card-title>
         <v-card-text class="term_descriptions text-center">
             <div v-for="language in current_languages" v-bind:key="language" class="obf-label">
-                {{ $t(tkey, language) }} ({{language}})
+                {{ language === 'en' ? tkey : $t(tkey, language) }} ({{language}})
             </div>
         </v-card-text>
     </v-card>
