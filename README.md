@@ -12,27 +12,27 @@ Bei Interesse zu diesem Thema: https://www.openaac.org/
 
 
 ## Testing
-### Inhalte
+   ### Inhalte
 1. Welcher Wortschatz ist wichtig? Wie gross soll der Umfang sein an:
-a. "Fachbegriffe", schwer übersetzbar, Vereinsbezogen, lokal
-b. "Ungebgräuchliches Voc", meistens in Wörterbuch
-c. "Basis Voc", meistgebrauchte Wörter allgemein 
+    1. "Fachbegriffe", schwer übersetzbar, Vereinsbezogen, lokal
+    2. "Ungebgräuchliches Voc", meistens in Wörterbuch (z.B. Baum- und Artennamen)
+    3. "Basis Voc", meistgebrauchte Wörter allgemein (vgl. AAC Boards)
 
 2. Nutzen von Länderseiten / Verbandsseiten
 3. Wie diskutieren wir schwer übersetzbare Wörter 
 
-### Design
+   ### Design
 4. Einfache Handhabung möglich? 
 5. Vergleiche Normale Version / AAC-Board
 6. Sind Bilder hilfreich? Oder lieber mehr Platz für Wörter?
 
-### Technisches / Strukturelles
-7. Wie bilden wir die völlig unterschiedlichen Strukturen ab? (Gruppen, Stufen, etc.)
-8. Gross / Kleinschreibung so ok, oder Änderungen an welchen Stellen?
+   ### Technisches / Strukturelles
+7. Wie tragen wir die völlig unterschiedlichen Strukturen, wie Gruppen, Stufen, etc. ab? (Eigene Begriffe, oder unterschiedliche "Pseudo-Sprachen")
+8. Gross / Kleinschreibung so allgemein ok?
 
-### Weiterentwicklung
+   ### Weiterentwicklung
 9. Ideen zu Verlinkungen zu Themen / Wörterbücher?
-10. Quelle für weiter Bilder
+10. Ideen für mehr Bilder, Begriffe, Strukturierung, etc.
 
 ## Weiterentwicklung
 
