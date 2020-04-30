@@ -34,12 +34,12 @@ Bei Interesse zu diesem Thema: https://www.openaac.org/
 9. Ideen zu Verlinkungen zu Themen / Wörterbücher?
 10. Ideen für mehr Bilder, Begriffe, Strukturierung, etc.
 
-## Weiterentwicklung
+## Mitarbeit
 
 Wörterliste: https://docs.google.com/spreadsheets/d/16alnROkJ__37BM4sKzlyJ7LYCvwgjr0U1rA0T6OtybA/edit?usp=sharing
 Github: https://github.com/hochreutenerl/camp-dictionary
 
-(Aktuell sind einige "externe" Dateien ignored, melde dich bei mir, wenn du das Projekt selbst builden lassen möchtest) 
+(Aktuell sind einige "externe" Dateien, wie die Bilder nicht im Repository, melde dich bei mir, wenn du das Projekt selbst installieren möchtest) 
 
 ### Technischer Hintergrund
 Vue-App, der Build benötigt lediglich einen HTTP-Server. Der Build (inkl. PWA) läuft komplett im Browser.
@@ -48,7 +48,7 @@ Für die Anzeige muss der neue Begriff aber noch in der Datei index.js an ein Th
 
 
 ## Image sources
-* Pictorgrams from Sergio Palao: http://www.arasaac.org/
+* Pictograms from Sergio Palao: http://www.arasaac.org/
 * https://www.pngwing.com/
 * The noun project:
   * https://thenounproject.com/darrin.higgins/collection/knots/
