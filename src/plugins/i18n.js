@@ -73,9 +73,13 @@ export default new VueI18n({
             return wtf.$i18n.t(camelize(code), lang);
         }
 
-        if (lang === 'en') {
-            window.missingCodes.push(code);
-            return code;
+        if(window.dict) {
+            var topic = window.dict.$root.$children[0].current_topic;
+
+            if (lang === 'en' && (topic === 'aac1' || topic === 'aac2')) {
+                window.missingCodes.push(code);
+                return code;
+            }
         }
         return "";
     }

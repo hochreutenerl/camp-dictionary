@@ -105,7 +105,7 @@
                 var terms = [];
 
                 if (newTopic === 'swadesh') {
-                    for (var key in Swadesh[this.$i18n.locale]) {
+                    for (var key in Swadesh["en"]) {
                         terms.push(key);
                     }
                 }

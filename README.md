@@ -23,7 +23,7 @@ Bei Interesse zu diesem Thema: https://www.openaac.org/
 
    ### Design
 4. Einfache Handhabung möglich? 
-5. Vergleiche Normale Version / AAC-Board
+5. Vergleiche Normale Version / AAC-Board (Schriftgrössen, Bildergrösse, Navigation, Farben)
 6. Sind Bilder hilfreich? Oder lieber mehr Platz für Wörter?
 
    ### Technisches / Strukturelles

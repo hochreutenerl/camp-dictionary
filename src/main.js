@@ -6,8 +6,9 @@ import './registerServiceWorker'
 
 Vue.config.productionTip = false;
 
-new Vue({
+window.dict =new Vue({
   vuetify,
   i18n,
   render: h => h(App)
 }).$mount('#app');
+
