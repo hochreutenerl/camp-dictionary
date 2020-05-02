@@ -15,6 +15,4 @@ module.exports =
         "smn": {name: "Anarâškielâ"},
         "eo": {name: "Esperanto",},
         "gsw": {name: "Schwizerdütsch", fallback: "de-CH"},
-
-        "en-x-image": {name: "image",hide: true},
     };

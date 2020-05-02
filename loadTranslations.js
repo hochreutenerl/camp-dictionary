@@ -1,43 +1,90 @@
-#! /usr/bin/env node
+#!/usr/bin/env node
+const isNotLanguage = ['key'];
 
-var childProcess = require('child_process');
+const _ = require("lodash");
+const fs = require("fs");
+const axios = require("axios");
+const parse = require("csv-parse");
+const argv = require("yargs")
+    .option("spreadsheet", {
+        description: "The google spreadsheet id",
+        required: true
+    })
+    .option("sheet", {
+        description: "The name of the spreadsheet's sheet",
+        required: true
+    })
+    .default("format", "json")
+    .default("output", "stdout").argv;
 
-function runScript(scriptPath, args, callback) {
+const URL = `https://docs.google.com/spreadsheets/d/${argv.spreadsheet}/gviz/tq?tqx=out:csv&sheet=${argv.sheet}`;
 
-    // keep track of whether callback has been invoked to prevent multiple invocations
-    var invoked = false;
+const fetchCSV = () => axios.get(URL).then(res => res.data);
 
-    var process = childProcess.fork(scriptPath, args);
-
-    // listen for errors as they may prevent the exit event from firing
-    process.on('error', function (err) {
-        if (invoked) return;
-        invoked = true;
-        callback(err);
+const parseCsv = txt =>
+    new Promise((resolve, reject) => {
+        parse(txt, {columns: true}, (err, records) => {
+            if (err) reject(err);
+            else resolve(records);
+        });
     });
 
-    // execute the callback once the process has finished running
-    process.on('exit', function (code) {
-        if (invoked) return;
-        invoked = true;
-        var err = code === 0 ? null : new Error('exit code ' + code);
-        callback(err);
-    });
-
-}
-
-const sheets = [
-    {name: 'all', id: '16alnROkJ__37BM4sKzlyJ7LYCvwgjr0U1rA0T6OtybA'},
-    {name: 'swadesh', id: '1ZSIuWrSbhluLYiEhfvV9yU_Mcy90ExPb6TqOcYLOp6E'},
-    {name: 'communikate20', id: '1EYBn60uCfKs9Rrc3dRrApnZovt99oW1r9voCIDuh7NE'},
-    {name: 'core24', id: '1_5rCDrzR0o2GmiTCuLUUEMJxJ5Zb6asi9ejJrZsiS28'},
-];
-
-sheets.forEach(function(sheet) {
-    var args = ['--spreadsheet=' + sheet['id'], '--sheet=Sheet1', '--format=json', '--output=src/locales/' + sheet['name'] + '.json'];
-    runScript('./src/plugins/spreadsheet.js', args, function (err) {
-        if (err) throw err;
-        console.log('finished running some-script.js');
-    });
+/** From { key:"", en:"", fr:"" }[] extract the languages columns. */
+const withLangs = data => ({
+    data,
+    langs: Object.keys(data[0]).filter(k => k != "" && !isNotLanguage.includes(k))
 });
 
+/** Construct language object. */
+const buildObject = ({langs, data}) => {
+    const result = {};
+    data.forEach(element =>
+        langs.forEach(lang => {
+                if (element[lang]) {
+                    _.setWith(
+                        result,
+                        lang + "." + element.key,
+                        element[lang] || element.key,
+                        Object
+                    )
+                }
+            }
+        )
+    );
+    return result;
+};
+
+const output = o => {
+    console.log(typeof o);
+    for (var language in o) {
+        if(language === 'topics') {
+            write(formatTopics(o[language]), argv.output + "topics.json")
+        } else {
+            write(o[language], argv.output + language + ".json")
+        }
+
+    }
+};
+
+const formatTopics = (o) => {
+    for(var key in o) {
+        o[key] = {
+            topics: o[key].split(',')
+        };
+    }
+    return o;
+};
+
+const write = (o, filename) => {
+    var str = JSON.stringify(o, null, 2);
+    console.log("Writing result to", filename);
+    fs.writeFileSync(filename, str, "utf-8");
+};
+
+
+fetchCSV()
+    .then(parseCsv)
+    .then(withLangs)
+    .then(buildObject)
+    .then(output)
+    .catch(err => console.log(err));

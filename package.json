@@ -12,7 +12,7 @@
     "capacitor-update": "vue-cli-service capacitor-update",
     "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'",
     "extract": "extract-zip /src/communikate-20.zip /src/assets",
-    "loadTranslations": "node loadTranslations"
+    "loadTranslations": "node loadTranslations --spreadsheet=16alnROkJ__37BM4sKzlyJ7LYCvwgjr0U1rA0T6OtybA --sheet=Sheet1 --output=src/locales/"
   },
   "dependencies": {
     "@capacitor/cli": "^1.0.0-alpha.38",

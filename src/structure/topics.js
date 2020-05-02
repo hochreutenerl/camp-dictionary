@@ -8,14 +8,9 @@ module.exports = {
     sportsGames: {title: 'Sports'},
     orienteering: {title: 'Orienteering'},
     cooking: {title: 'Cooking'},
-    treehouse: {title: 'Treehouse building', hide: true},
+    treehouse: {title: 'Treehouse building'},
     ch: {title: 'Switzerland'},
     junds: {title: 'Youth and Sports', hide: true},
-    noTopic: {title: 'Norway'},
+    no: {title: 'Norway'},
     fi: {title: 'Finland'},
-
-    swadesh: {title: 'Swadesh-List'},
-
-    aac1: {title: 'AAC1', type: 'aac', folder: 'communikate20'},
-    aac2: {title: 'AAC2', type: 'aac', folder: 'core24'}
 };
