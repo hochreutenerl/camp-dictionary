@@ -29,43 +29,12 @@
                 <v-divider dark class="my-4"/>
 
                 <v-subheader>{{ flup($t("languages")) }}</v-subheader>
-                <v-list-item-group v-model="current_languages" multiple>
-                    <template v-for="(lang, code) in languages">
-                        <v-list-item dense v-if="!lang.hide" :key="`item-${code}`" :value="code">
-                            <template v-slot:default="{ active, toggle }">
-                                <v-list-item-content>
-                                    <v-list-item-title v-text="lang.name"></v-list-item-title>
-                                </v-list-item-content>
-
-                                <v-list-item-action class="lang_check">
-                                    <v-checkbox :input-value="active" :true-value="code" @click="toggle"
-                                                color="green"></v-checkbox>
-                                </v-list-item-action>
-                            </template>
-                        </v-list-item>
-                    </template>
-                </v-list-item-group>
+                <MultiLangSelector></MultiLangSelector>
             </v-list>
         </v-navigation-drawer>
 
         <v-content class="content">
-            <v-container class="terms" fluid grid-list-xl>
-                <v-layout wrap justify-space-around>
-                    <v-flex v-for="(term, i) in current_terms" v-bind:key="i"
-                            class="term xs6 sm4 md3 lg2 xl2">
-                        <v-card>
-                            <v-img class="term_image" :src="imgPath(term)" alt=""></v-img>
-                            <v-card-title>{{ flup($t(term)) }}</v-card-title>
-                            <v-card-text class="term_descriptions">
-                                <div v-for="language in current_languages" v-bind:key="language"
-                                     class="term_description text--primary">
-                                    {{ $t(term, language) }} ({{language}})
-                                </div>
-                            </v-card-text>
-                        </v-card>
-                    </v-flex>
-                </v-layout>
-            </v-container>
+            <TermGrid :terms="current_terms"></TermGrid>
         </v-content>
     </v-app>
 </template>
@@ -74,13 +43,15 @@
     import 'material-design-icons-iconfont';
 
     import index from '@/locales/topics';
-    import languages from './structure/languages';
-    import topics from './structure/topics';
+    import languages from '@/structure/languages';
+    import topics from '@/structure/topics';
+    import MultiLangSelector from "@/Components/MultiLangSelector";
+    import TermGrid from "@/Components/TermGrid";
 
     export default {
         name: 'App',
 
-        components: {},
+        components: {TermGrid, MultiLangSelector},
 
         data: () => ({
             drawer: null,
@@ -88,7 +59,6 @@
             languages: languages,
             topics: topics,
             current_topic: "basic",
-            current_languages: ["en"],
             current_terms: [],
             dictionary: {},
         }),
@@ -159,9 +129,6 @@
             updateTitle: function () {
                 window.document.title = this.flup(this.$i18n.t("appname"));
             },
-            imgPath: function (term) {
-                return './img/terms/' + term + '.png';
-            },
             sortTerms: function() {
                 this.current_terms = this.current_terms.sort((a, b) => {
                     var nameA = this.$i18n.t(a).toLowerCase();
@@ -175,11 +142,6 @@
             }
         },
         created: function () {
-            var storedLanguages = JSON.parse(localStorage.getItem("current_languages"));
-            if (storedLanguages) {
-                this.current_languages = storedLanguages;
-            }
-
             var storedLanguage = JSON.parse(localStorage.getItem("locale"));
             if (storedLanguage) {
                 this.$i18n.locale = storedLanguage;
