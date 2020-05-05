@@ -62,5 +62,10 @@ Für die Anzeige muss der neue Begriff aber noch in der Datei index.js an ein Th
   * https://commons.wikimedia.org/wiki/File:Lashing_square.jpg
   * https://commons.wikimedia.org/wiki/File:Winter_activities_on_ice.jpg
   * https://de.wikipedia.org/wiki/Datei:Lashing_diagonal.jpg
+* Papunet Kuvapankki: https://kuvapankki.papunet.net/
+  * Päivi Honkonen
+  * Elina Vanninen
+  * Paxtoncrafts Charitable Trust
+  
 * CH: Cevi (Webpage / Haik / Wiki)
 * FI: Partio (Webpage / partio-ohjelma)

@@ -18,7 +18,7 @@ module.exports = {
     configureWebpack: {
         module: {
             rules: [ {
-                test: /\.obf$/,
+                test: /\.md$/,
                 loader: 'raw-loader', // npm install -D raw-loader
             }]
         }

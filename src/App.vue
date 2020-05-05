@@ -12,19 +12,20 @@
         </v-app-bar>
 
         <v-navigation-drawer v-model="drawer" app clipped color="grey lighten-4" class="d-print-none">
-            <v-list class="grey lighten-4">
-
-                <v-subheader>{{ flup($t("topics")) }}</v-subheader>
-                <v-list-item-group v-model="current_topic">
-                    <template v-for="(topic, code) in topics">
-                        <v-list-item v-if="!topic.hide" :key="`item-${code}`" :value="code">
-                            <v-list-item-content>
-                                <v-list-item-title>{{ $t(code) === "" ? code : flup($t(code)) }}
-                                </v-list-item-title>
-                            </v-list-item-content>
-                        </v-list-item>
-                    </template>
-                </v-list-item-group>
+            <v-list class="grey lighten-4" dense>
+                <div v-for="(title, code) in topics" :key="code">
+                    <v-subheader>{{ flup($t(code)) }}</v-subheader>
+                    <v-list-item-group v-model="current_topic">
+                        <template v-for="(topic, code) in title">
+                            <v-list-item v-if="!topic.hide" :key="`item-${code}`" :value="code">
+                                <v-list-item-content>
+                                    <v-list-item-title>{{ $t(code) === "" ? code : flup($t(code)) }}
+                                    </v-list-item-title>
+                                </v-list-item-content>
+                            </v-list-item>
+                        </template>
+                    </v-list-item-group>
+                </div>
 
                 <v-divider dark class="my-4"/>
 
@@ -59,11 +60,14 @@
             languages: languages,
             topics: topics,
             current_topic: "basic",
+            searchfield: "",
             current_terms: [],
             dictionary: {},
         }),
         methods: {
             refreshTerms: function (newTopic) {
+                this.searchfield = "";
+
                 var terms = [];
 
                 var ix = this.index;
@@ -109,8 +113,10 @@
                     return true;
                 }
 
-                for (var lang in this.current_languages) {
-                    if (this.termMatchesLocale(key, search, this.current_languages[lang])) {
+                var languages = this.$store.state.current_languages;
+
+                for (var lang in languages) {
+                    if (this.termMatchesLocale(key, search, languages[lang])) {
                         return true;
                     }
                 }
@@ -122,20 +128,18 @@
 
             },
             flup: function (text) {
-                if (text[0]) {
-                    return text.replace(/^./, text[0].toUpperCase());
-                }
+                return this.$func.flup(text);
             },
             updateTitle: function () {
                 window.document.title = this.flup(this.$i18n.t("appname"));
             },
-            sortTerms: function() {
+            sortTerms: function () {
                 this.current_terms = this.current_terms.sort((a, b) => {
                     var nameA = this.$i18n.t(a).toLowerCase();
                     var nameB = this.$i18n.t(b).toLowerCase();
 
-                    if(nameA === "" || nameA === null) return 1;
-                    if(nameB === "" || nameB === null) return -1;
+                    if (nameA === "" || nameA === null) return 1;
+                    if (nameB === "" || nameB === null) return -1;
 
                     return nameA.localeCompare(nameB);
                 });
@@ -159,9 +163,6 @@
             current_topic: function (newTopic) {
                 this.refreshTerms(newTopic);
                 localStorage.setItem("current_topic", JSON.stringify(newTopic));
-            },
-            current_languages: function (newLanguages) {
-                localStorage.setItem("current_languages", JSON.stringify(newLanguages));
             },
         },
         computed: {
@@ -190,10 +191,6 @@
     .locale-changer {
         margin-top: 20px !important;
         margin-bottom: 0 !important;
-    }
-
-    .term {
-        max-width: 180px;
     }
 
     @media print {

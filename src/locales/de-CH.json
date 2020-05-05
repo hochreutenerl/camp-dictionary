@@ -1,7 +1,7 @@
 {
   "scarf": "Krawatte",
   "meetingPlace": "Treffpunkt / Bude",
-  "movement": "Verband",
+  "nationalOrganisation": "Verband",
   "troop": "Abteilung",
   "patrol": "Gruppe / Stufe",
   "troopleader": "Abteilungsleiter",
@@ -28,6 +28,8 @@
   "potato": "Härdöpfel",
   "carrot": "Rüebli",
   "icecream": "Glacé",
+  "bouillon": "Bouillon",
+  "pepper": "Pepperoni",
   "harness": "Gstältli",
   "tensionBelt": "Spannset",
   "crowbar": "Geissfuss",

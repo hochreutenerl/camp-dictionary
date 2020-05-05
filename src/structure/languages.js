@@ -10,7 +10,7 @@ module.exports =
         "rm": {name: "Rumantsch"},
         "no": {name: "Norsk",},
         "fi": {name: "Suomi", pageLocale: true},
-        "sv-FI": {name: "Svenska (Finland)", fallback: "sv"},
+        "sv-FI": {name: "Svenska (Finland)", fallback: "sv", pageLocale: true},
         "sv": {name: "Svenska", hide: true},
         "smn": {name: "Anarâškielâ"},
         "eo": {name: "Esperanto",},

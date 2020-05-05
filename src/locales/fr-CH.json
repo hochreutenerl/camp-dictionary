@@ -1,8 +1,11 @@
 {
   "hike": "raid ou bivouac / randonnée",
   "worldmovement": "mouvement mondiale",
-  "movement": "mouvement nationale",
+  "nationalOrganisation": "mouvement nationale",
   "district": "association cantonale",
   "troop": "groupe / brigade",
-  "leader": "chef"
+  "leader": "chef",
+  "breakfast": "déjeuner",
+  "lunch": "diner",
+  "dinner": "souper"
 }

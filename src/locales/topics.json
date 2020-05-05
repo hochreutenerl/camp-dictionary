@@ -44,7 +44,7 @@
       "organisation"
     ]
   },
-  "movement": {
+  "nationalOrganisation": {
     "topics": [
       "organisation"
     ]
@@ -186,7 +186,8 @@
   },
   "hammer": {
     "topics": [
-      "equipment"
+      "equipment",
+      "treehouse"
     ]
   },
   "rasp": {
@@ -306,32 +307,48 @@
   },
   "knive": {
     "topics": [
-      "equipment"
+      "equipment",
+      "cooking"
     ]
   },
   "fork": {
     "topics": [
-      "equipment"
+      "equipment",
+      "cooking"
     ]
   },
   "spoon": {
     "topics": [
-      "equipment"
+      "equipment",
+      "cooking"
     ]
   },
   "cutlery": {
     "topics": [
-      "equipment"
+      "equipment",
+      "cooking"
     ]
   },
   "cup": {
     "topics": [
-      "equipment"
+      "equipment",
+      "cooking"
     ]
   },
   "plate": {
     "topics": [
-      "equipment"
+      "equipment",
+      "cooking"
+    ]
+  },
+  "azimuth": {
+    "topics": [
+      "orienteering"
+    ]
+  },
+  "equidistance": {
+    "topics": [
+      "orienteering"
     ]
   },
   "compass": {
@@ -571,7 +588,8 @@
   },
   "hospital": {
     "topics": [
-      "firstAid"
+      "firstAid",
+      "orienteering"
     ]
   },
   "wounded": {
@@ -831,8 +849,9 @@
   },
   "junds": {
     "topics": [
-      "juds"
-    ]
+      "ch"
+    ],
+    "link": "junds"
   },
   "campactivity": {
     "topics": [
@@ -1111,13 +1130,15 @@
   },
   "forest": {
     "topics": [
-      "nature"
+      "nature",
+      "orienteering"
     ]
   },
   "animal": {
     "topics": [
       "nature"
-    ]
+    ],
+    "link": "animals"
   },
   "trace": {
     "topics": [
@@ -1127,331 +1148,398 @@
   "plant": {
     "topics": [
       "nature"
-    ]
+    ],
+    "link": "plants"
   },
   "mushroom": {
     "topics": [
-      "nature"
+      "nature",
+      "cooking"
     ]
   },
   "weather": {
     "topics": [
       "nature"
-    ]
+    ],
+    "link": "weather"
   },
   "lynx": {
     "topics": [
-      "nature"
+      "nature",
+      "animals"
     ]
   },
   "wolf": {
     "topics": [
-      "nature"
+      "nature",
+      "animals"
     ]
   },
   "bear": {
     "topics": [
-      "nature"
+      "nature",
+      "animals"
     ]
   },
   "deer": {
     "topics": [
-      "nature"
+      "nature",
+      "animals"
     ]
   },
   "hare": {
     "topics": [
-      "nature"
+      "nature",
+      "animals"
     ]
   },
   "capricorn": {
     "topics": [
-      "nature"
+      "nature",
+      "animals"
     ]
   },
   "marmot": {
     "topics": [
-      "nature"
+      "nature",
+      "animals"
     ]
   },
   "beaver": {
     "topics": [
-      "nature"
+      "nature",
+      "animals"
     ]
   },
   "fox": {
     "topics": [
-      "nature"
+      "nature",
+      "animals"
     ]
   },
   "badger": {
     "topics": [
-      "nature"
+      "nature",
+      "animals"
     ]
   },
   "bird": {
     "topics": [
-      "nature"
+      "nature",
+      "animals"
     ]
   },
   "eagle": {
     "topics": [
-      "nature"
+      "nature",
+      "animals"
     ]
   },
   "kiteAnimal": {
     "topics": [
-      "nature"
+      "nature",
+      "animals"
     ]
   },
   "owl": {
     "topics": [
-      "nature"
+      "nature",
+      "animals"
     ]
   },
   "squirrel": {
     "topics": [
-      "nature"
+      "nature",
+      "animals"
     ]
   },
   "hedgehog": {
     "topics": [
-      "nature"
+      "nature",
+      "animals"
     ]
   },
   "frog": {
     "topics": [
-      "nature"
+      "nature",
+      "animals"
     ]
   },
   "mouse": {
     "topics": [
-      "nature"
+      "nature",
+      "animals"
     ]
   },
   "snake": {
     "topics": [
-      "nature"
+      "nature",
+      "animals"
     ]
   },
   "spider": {
     "topics": [
-      "nature"
+      "nature",
+      "animals"
     ]
   },
   "butterfly": {
     "topics": [
-      "nature"
+      "nature",
+      "animals"
     ]
   },
   "fly": {
     "topics": [
-      "nature"
+      "nature",
+      "animals"
     ]
   },
   "moscito": {
     "topics": [
-      "nature"
+      "nature",
+      "animals"
     ]
   },
   "snail": {
     "topics": [
-      "nature"
+      "nature",
+      "animals"
     ]
   },
   "slug": {
     "topics": [
-      "nature"
+      "nature",
+      "animals"
     ]
   },
   "grasshopper": {
     "topics": [
-      "nature"
+      "nature",
+      "animals"
     ]
   },
   "chicken": {
     "topics": [
-      "nature"
+      "nature",
+      "animals"
     ]
   },
   "pig": {
     "topics": [
-      "nature"
+      "nature",
+      "animals"
     ]
   },
   "cow": {
     "topics": [
-      "nature"
+      "nature",
+      "animals"
     ]
   },
   "horse": {
     "topics": [
-      "nature"
+      "nature",
+      "animals"
     ]
   },
   "tree": {
     "topics": [
-      "nature"
-    ]
+      "nature",
+      "orienteering"
+    ],
+    "link": "trees"
   },
   "fir": {
     "topics": [
-      "nature"
+      "nature",
+      "trees"
     ]
   },
   "spruce": {
     "topics": [
-      "nature"
+      "nature",
+      "trees"
     ]
   },
   "larch": {
     "topics": [
-      "nature"
+      "nature",
+      "trees"
     ]
   },
   "beech": {
     "topics": [
-      "nature"
+      "nature",
+      "trees"
     ]
   },
   "birch": {
     "topics": [
-      "nature"
+      "nature",
+      "trees"
     ]
   },
   "oak": {
     "topics": [
-      "nature"
+      "nature",
+      "trees"
     ]
   },
   "maple": {
     "topics": [
-      "nature"
+      "nature",
+      "trees"
     ]
   },
   "ash": {
     "topics": [
-      "nature"
+      "nature",
+      "trees"
     ]
   },
   "rowan": {
     "topics": [
-      "nature"
+      "nature",
+      "trees"
     ]
   },
   "hazel": {
     "topics": [
-      "nature"
+      "nature",
+      "trees"
     ]
   },
   "chestnut": {
     "topics": [
-      "nature"
+      "nature",
+      "trees"
     ]
   },
   "cedar": {
     "topics": [
-      "nature"
+      "nature",
+      "trees"
     ]
   },
   "rye": {
     "topics": [
-      "nature"
+      "nature",
+      "plants"
     ]
   },
   "barley": {
     "topics": [
-      "nature"
+      "nature",
+      "plants"
     ]
   },
   "wheat": {
     "topics": [
-      "nature"
+      "nature",
+      "plants"
     ]
   },
   "oat": {
     "topics": [
-      "nature"
+      "nature",
+      "plants"
     ]
   },
   "corn": {
     "topics": [
-      "nature"
+      "nature",
+      "plants"
     ]
   },
   "edelweiss": {
     "topics": [
-      "nature"
+      "nature",
+      "plants"
     ]
   },
   "gentian": {
     "topics": [
-      "nature"
+      "nature",
+      "plants"
     ]
   },
   "strawberry": {
     "topics": [
-      "nature"
+      "nature",
+      "plants"
     ]
   },
   "raspberry": {
     "topics": [
-      "nature"
+      "nature",
+      "plants"
     ]
   },
   "blueberry": {
     "topics": [
-      "nature"
+      "nature",
+      "plants"
     ]
   },
   "blackberry": {
     "topics": [
-      "nature"
+      "nature",
+      "plants"
     ]
   },
   "weatherForecast": {
     "topics": [
-      "nature"
+      "nature",
+      "weather"
     ]
   },
   "cloud": {
     "topics": [
-      "nature"
+      "nature",
+      "weather"
     ]
   },
   "rain": {
     "topics": [
-      "nature"
+      "nature",
+      "weather"
     ]
   },
   "snow": {
     "topics": [
-      "nature"
+      "nature",
+      "weather"
     ]
   },
   "hail": {
     "topics": [
-      "nature"
+      "nature",
+      "weather"
     ]
   },
   "wind": {
     "topics": [
-      "nature"
+      "nature",
+      "weather"
     ]
   },
   "thunderstorm": {
     "topics": [
-      "nature"
+      "nature",
+      "weather"
     ]
   },
   "lightning": {
     "topics": [
-      "nature"
+      "nature",
+      "weather"
     ]
   },
   "thunder": {
     "topics": [
-      "nature"
+      "nature",
+      "weather"
     ]
   },
   "earth": {
@@ -1481,17 +1569,20 @@
   },
   "mountain": {
     "topics": [
-      "nature"
+      "nature",
+      "orienteering"
     ]
   },
   "valley": {
     "topics": [
-      "nature"
+      "nature",
+      "orienteering"
     ]
   },
   "hills": {
     "topics": [
-      "nature"
+      "nature",
+      "orienteering"
     ]
   },
   "winter": {
@@ -1566,7 +1657,8 @@
   },
   "water": {
     "topics": [
-      "cooking"
+      "cooking",
+      "nature"
     ]
   },
   "oil": {
@@ -1615,6 +1707,131 @@
     ]
   },
   "icecream": {
+    "topics": [
+      "cooking"
+    ]
+  },
+  "breakfast": {
+    "topics": [
+      "cooking"
+    ]
+  },
+  "lunch": {
+    "topics": [
+      "cooking"
+    ]
+  },
+  "dinner": {
+    "topics": [
+      "cooking"
+    ]
+  },
+  "toFry": {
+    "topics": [
+      "cooking"
+    ]
+  },
+  "toHeat": {
+    "topics": [
+      "cooking"
+    ]
+  },
+  "toCut": {
+    "topics": [
+      "cooking"
+    ]
+  },
+  "bouillon": {
+    "topics": [
+      "cooking"
+    ]
+  },
+  "glutenFree": {
+    "topics": [
+      "cooking"
+    ]
+  },
+  "lactose": {
+    "topics": [
+      "cooking"
+    ]
+  },
+  "hazelnut": {
+    "topics": [
+      "cooking"
+    ]
+  },
+  "almonds": {
+    "topics": [
+      "cooking"
+    ]
+  },
+  "garlic": {
+    "topics": [
+      "cooking"
+    ]
+  },
+  "aubergine": {
+    "topics": [
+      "cooking"
+    ]
+  },
+  "courgette": {
+    "topics": [
+      "cooking"
+    ]
+  },
+  "bacon": {
+    "topics": [
+      "cooking"
+    ]
+  },
+  "apricot": {
+    "topics": [
+      "cooking"
+    ]
+  },
+  "melon": {
+    "topics": [
+      "cooking"
+    ]
+  },
+  "lemon": {
+    "topics": [
+      "cooking"
+    ]
+  },
+  "olive": {
+    "topics": [
+      "cooking"
+    ]
+  },
+  "pepper": {
+    "topics": [
+      "cooking"
+    ]
+  },
+  "grapes": {
+    "topics": [
+      "cooking"
+    ]
+  },
+  "kiwi": {
+    "topics": [
+      "cooking"
+    ]
+  },
+  "milk": {
+    "topics": [
+      "cooking"
+    ]
+  },
+  "beer": {
+    "topics": [
+      "cooking"
+    ]
+  },
+  "wine": {
     "topics": [
       "cooking"
     ]
@@ -1879,6 +2096,11 @@
       "fi"
     ]
   },
+  "fi15": {
+    "topics": [
+      "fi"
+    ]
+  },
   "no1": {
     "topics": [
       "no"
@@ -1895,6 +2117,11 @@
     ]
   },
   "no4": {
+    "topics": [
+      "no"
+    ]
+  },
+  "no5": {
     "topics": [
       "no"
     ]

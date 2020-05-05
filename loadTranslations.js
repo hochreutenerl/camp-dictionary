@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const isNotLanguage = ['key'];
+const isNotLanguage = ['key', 'topics', 'link'];
 
 const _ = require("lodash");
 const fs = require("fs");
@@ -32,7 +32,7 @@ const parseCsv = txt =>
 /** From { key:"", en:"", fr:"" }[] extract the languages columns. */
 const withLangs = data => ({
     data,
-    langs: Object.keys(data[0]).filter(k => k != "" && !isNotLanguage.includes(k))
+    langs: Object.keys(data[0]).filter(k => k !== "" && !isNotLanguage.includes(k))
 });
 
 /** Construct language object. */
@@ -51,28 +51,31 @@ const buildObject = ({langs, data}) => {
             }
         )
     );
+    data.forEach(element =>
+        isNotLanguage.forEach(attribute => {
+                if (element[attribute] && attribute !== "key") {
+                    if(attribute === "topics") {
+                        element[attribute] = element[attribute].replace(/ /g, '').split(',');
+                    }
+                    _.setWith(
+                        result,
+                        "topics." + element.key + "." + attribute,
+                        element[attribute] || element.key,
+                        Object
+                    )
+                }
+            }
+        )
+    );
+
     return result;
 };
 
 const output = o => {
     console.log(typeof o);
     for (var language in o) {
-        if(language === 'topics') {
-            write(formatTopics(o[language]), argv.output + "topics.json")
-        } else {
-            write(o[language], argv.output + language + ".json")
-        }
-
+        write(o[language], argv.output + language + ".json")
     }
-};
-
-const formatTopics = (o) => {
-    for(var key in o) {
-        o[key] = {
-            topics: o[key].split(',')
-        };
-    }
-    return o;
 };
 
 const write = (o, filename) => {
