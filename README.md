@@ -7,27 +7,22 @@ Erstellung eines Online-Bilder-Wörterbuch mit den wichtigsten Ausdrücken, die 
 Unter https://dict.programmplaner.ch/ kann ein Prototyp getestet werden, welcher eine Basis für die weitere Arbeit zeigen soll.
 Das Ziel des Tests soll sein, den Umfang und die Funktionalität zu ermitteln. Dazu dienen die Stichworte unten.
 
-Ebenfalls habe ich einen einen OBF (resp. unzipped OBZ) reader geschrieben. Dieser kann "Sprachbretter" anzeigen, wie sie zum Beispiel mit Leuten mit Sprachbehinderung eingesetzt werden.
-Bei Interesse zu diesem Thema: https://www.openaac.org/
-
 
 ## Testing
    ### Inhalte
 1. Welcher Wortschatz ist wichtig? Wie gross soll der Umfang sein an:
     1. "Fachbegriffe", schwer übersetzbar, Vereinsbezogen, lokal
     2. "Ungebgräuchliches Voc", meistens in Wörterbuch (z.B. Baum- und Artennamen)
-    3. "Basis Voc", meistgebrauchte Wörter allgemein (vgl. AAC Boards)
+    3. "Basis Voc", meistgebrauchte Wörter allgemein
 
 2. Nutzen von Länderseiten / Verbandsseiten
-3. Wie diskutieren wir schwer übersetzbare Wörter 
 
    ### Design
 4. Einfache Handhabung möglich? 
-5. Vergleiche Normale Version / AAC-Board (Schriftgrössen, Bildergrösse, Navigation, Farben)
 6. Sind Bilder hilfreich? Oder lieber mehr Platz für Wörter?
 
    ### Technisches / Strukturelles
-7. Wie tragen wir die völlig unterschiedlichen Strukturen, wie Gruppen, Stufen, etc. ab? (Eigene Begriffe, oder unterschiedliche "Pseudo-Sprachen")
+7. Sind die unterschiedlichen Strukturen genügend flexibel abgebildet?
 8. Gross / Kleinschreibung so allgemein ok?
 
    ### Weiterentwicklung

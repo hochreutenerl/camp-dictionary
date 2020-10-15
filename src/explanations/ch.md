@@ -5,7 +5,7 @@ Descriptions may differ for other organisations, languages or even regions.*
 Typical activities in a Swiss group are:
  * Programme on Saturday afternoon (14:00 - 17:00)
  * Camps during school holidays
- * Regional (seldom national) leadership courses and fun events
+ * Regional (sometimes national) leadership courses and fun events
 
 ## Specialities
 There are a few things that are unique to groups in Switzerland:
@@ -13,15 +13,15 @@ There are a few things that are unique to groups in Switzerland:
  * many groups cook all their meals on the fire
  * big games in the forest (Geländespiel)
  * camp construction (Lagerbau) is a big part of every camp, many of these have major self built structures
- * districts and local groups define their structure and activities (like age groups, programme content, courses) completely themselves
- * group members and leaders are in generally rather young
+ * districts and local groups define their structure and activities (like age groups, programme content, courses) almost completely on their own
+ * group members and leaders are in generally rather young (local group leaders are usually between 18 and 25 years old)
  * the "Federal Office of Sport" stronlgy supports camps with material and funds (as long as leaders visit courses and let their programme be cheked)
   
 ## Languages
 Switzerland has four official languages: German (63%), French (23%), Italian (8%) and Romansh (1%)
 
-In Swiss YMCA the distribution is as follows: German (95%), French (4%), Romansh (1%).  
-Most information is therefore only available German and limited in French.
+In Swiss YMCA scouts the distribution is as follows: German (95%), French (4%), Romansh (1%).  
+Most information is therefore only available German and to some extent in French.
   
 ## Age Structure
 In most local groups the member of the groups stay together even though they change the "age group".
@@ -31,16 +31,17 @@ This leads to a big variety in structures between the local groups.
 Name                              | Minimal age | Maximal age
 ---                               | ---         | ---
 Fröschli (introduction programme) | ca. 4       | ca. 6
-Participants                      | ca. 6       | 12 - 17
+Jungschar (participants)          | ca. 6       | 12 - 17
 Leaders (minor tasks)             | 13-18       | 18
 Leaders (major responsibilities)  | 18          | (no official maximal age, but only few people are over the age of 28)
 
 ## Symbolism
-Swiss YMCA-scouts use blue uniforms. It is worn to almost all activities of the group.  
-Some scouts "decorate" or "destroy" their shirt with various colours or self printed emblems on the back.
+Swiss YMCA-scouts use blue uniforms. It is worn to almost all public activities of the group.  
+Some scouts "decorate" their shirt with various paintings, souvenirs or self printed emblems.
 
 Every local group has its own scarf: [List of local groups and its scarves](https://www.cevi-krawatte.ch/)  
 Very often scarves are hanged into the should flap, with exception for the national scarf.
+It is common to swop scarves and also to wear scarves from other befriended groups.
 
 ## Roles
 
@@ -80,8 +81,7 @@ Messaging              | Übermitteln       | rare      |  ![](/img/explanations
 
 Switzerland has a very detailed and diverse course system.
 
-Courses for older leaders are organised in cooperation with "Youth + Sports",
-which also supports camps organised in this programme.
+Courses for older leaders are organised in cooperation with "Youth + Sports", which also supports camps organised in this programme.
 
 
 ### Courses for participants / younger leaders (dt. "Untere Kursreihe")
@@ -91,7 +91,7 @@ Almost all courses last for one week.
 
 Number | Recommended Age | Name (Eastern Switzerland) | Name (Zurich Region) | Badge 
 ---    | ---             | ---                        | ---                  | --- 
-1      | 12-13           | Impuls13                   | Vorkrus              | ![](/img/explanations/ch/kurs1.png "") 
+1      | 12-13           | Impuls13                   | Vorkurs              | ![](/img/explanations/ch/kurs1.png "") 
 2      | 13-14           | NauHau / Grundkurs         | Helferkurs           | ![](/img/explanations/ch/kurs2.png "") 
 3      | 14-15           | Leitertraining             | Gruppenleiterkurs 1  | ![](/img/explanations/ch/kurs3.png "") 
 4      | 15-17           | Gruppenleiterkurs          | Gruppenleiterkurs 2  | ![](/img/explanations/ch/kurs4.png "") 

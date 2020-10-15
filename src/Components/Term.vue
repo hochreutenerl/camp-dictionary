@@ -1,7 +1,7 @@
 <template>
     <v-card @click="switchTopic()" :class="{'linked': link, 'term': true}" :raised="link != undefined"
             height="100%">
-        <v-img class="term_image" :src="'/img/terms/' + term + '.png'" alt=""></v-img>
+        <v-img class="term_image" :src="'/img/terms/' + term + '.png'" alt="" :lazy-src="'/img/terms/empty.png'"></v-img>
         <v-card-title class="term_title">{{ flup($t(term)) }}</v-card-title>
         <v-card-text class="term_descriptions">
             <div class="term_descriptions_container">
