@@ -20,7 +20,7 @@
     "core-js": "^3.6.4",
     "extract-zip": "^2.0.0",
     "fs": "0.0.1-security",
-    "jszip": "^3.4.0",
+    "jszip": "^3.7.0",
     "marked": "^1.0.0",
     "register-service-worker": "^1.7.1",
     "vue": "^2.6.11",
